@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Terminology — Chapter 6</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --pur:    #6B21A8; --pur-lt:  #F3E8FF; --pur-dk:  #3B0764;
+    --teal:   #0F766E; --teal-lt: #CCFBF1; --teal-dk: #042F2E;
+    --blue:   #1D4ED8; --blue-lt: #DBEAFE; --blue-dk: #1E3A8A;
+    --amber:  #B45309; --amber-lt:#FEF3C7; --amber-dk:#451A03;
+    --coral:  #C2410C; --coral-lt:#FFEDD5; --coral-dk:#431407;
+    --green:  #166534; --green-lt:#DCFCE7; --green-dk:#052E16;
+    --slate:  #334155; --slate-lt:#F1F5F9; --slate-dk:#0F172A;
+    --gray-50:#F9FAFB; --gray-100:#F3F4F6; --gray-200:#E5E7EB;
+    --gray-400:#9CA3AF; --gray-600:#4B5563; --gray-700:#374151; --black:#111827;
+    --font:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+    --radius:10px; --radius-sm:6px;
+  }
+  body { font-family:var(--font); background:var(--gray-50); color:var(--black); }
+  .module { max-width:860px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+
+  .module-header { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius); padding:1.75rem 2rem; margin-bottom:1.5rem; display:flex; gap:1.5rem; align-items:flex-start; }
+  .header-icon { width:52px; height:52px; border-radius:var(--radius-sm); background:var(--pur-lt); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .header-icon svg { width:28px; height:28px; stroke:var(--pur); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .header-text h1 { font-size:20px; font-weight:600; }
+  .header-text p  { font-size:13px; color:var(--gray-400); margin-top:3px; }
+  .progress-wrap { margin-top:14px; display:flex; align-items:center; gap:10px; }
+  .progress-bg { flex:1; height:5px; background:var(--gray-200); border-radius:3px; overflow:hidden; }
+  .progress-fill { height:100%; background:var(--pur); border-radius:3px; transition:width 0.5s; width:0%; }
+  .progress-label { font-size:12px; color:var(--gray-400); white-space:nowrap; }
+
+  .nav-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.5rem; }
+  .tab { padding:7px 16px; font-size:13px; font-family:var(--font); font-weight:500; border:1px solid var(--gray-200); border-radius:100px; background:#fff; color:var(--gray-600); cursor:pointer; transition:all 0.15s; }
+  .tab:hover { border-color:var(--pur); color:var(--pur); }
+  .tab.active { background:var(--pur); border-color:var(--pur); color:#fff; }
+
+  .section { display:none; }
+  .section.active { display:block; animation:fadeIn 0.2s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+
+  .card { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius); padding:1.25rem 1.5rem; margin-bottom:1rem; }
+  .card-title { font-size:14px; font-weight:600; display:flex; align-items:center; gap:7px; margin-bottom:12px; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; }
+  @media(max-width:620px){ .two-col,.three-col{grid-template-columns:1fr} }
+
+  .badge { font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; }
+  .badge-pur   { background:var(--pur-lt);   color:var(--pur-dk); }
+  .badge-teal  { background:var(--teal-lt);  color:var(--teal-dk); }
+  .badge-blue  { background:var(--blue-lt);  color:var(--blue-dk); }
+  .badge-amber { background:var(--amber-lt); color:var(--amber-dk); }
+  .badge-coral { background:var(--coral-lt); color:var(--coral-dk); }
+  .badge-green { background:var(--green-lt); color:var(--green-dk); }
+  .badge-slate { background:var(--slate-lt); color:var(--slate-dk); }
+
+  .chip { display:inline-block; font-family:var(--mono); font-size:12px; padding:1px 7px; border-radius:4px; background:var(--gray-100); color:var(--black); border:1px solid var(--gray-200); }
+  .tip { border-radius:var(--radius-sm); padding:10px 14px; font-size:13px; line-height:1.6; margin-top:10px; }
+  .tip.pur   { background:var(--pur-lt);   color:var(--pur-dk);   border-left:3px solid var(--pur); }
+  .tip.teal  { background:var(--teal-lt);  color:var(--teal-dk);  border-left:3px solid var(--teal); }
+  .tip.amber { background:var(--amber-lt); color:var(--amber-dk); border-left:3px solid var(--amber); }
+  .tip.coral { background:var(--coral-lt); color:var(--coral-dk); border-left:3px solid var(--coral); }
+  .tip.blue  { background:var(--blue-lt);  color:var(--blue-dk);  border-left:3px solid var(--blue); }
+
+  .vs-item { border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:10px 12px; }
+  .vs-head { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px; }
+  .vs-body { font-size:13px; color:var(--gray-600); line-height:1.5; }
+
+  /* ANATOMY PATH */
+  .path-row { display:flex; gap:12px; align-items:flex-start; padding:9px 0; border-bottom:1px solid var(--gray-200); }
+  .path-row:last-child { border-bottom:none; }
+  .path-num { width:28px; height:28px; border-radius:50%; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+  .path-name { font-size:13.5px; font-weight:600; color:var(--black); }
+  .path-cf   { font-family:var(--mono); font-size:11px; color:var(--pur); background:var(--pur-lt); padding:1px 5px; border-radius:3px; margin-left:5px; }
+  .path-desc { font-size:12.5px; color:var(--gray-600); margin-top:2px; line-height:1.4; }
+
+  /* PATHOLOGY */
+  .pitem { display:flex; gap:10px; align-items:flex-start; padding:9px 0; border-bottom:1px solid var(--gray-200); }
+  .pitem:last-child { border-bottom:none; padding-bottom:0; }
+  .pitem:first-child { padding-top:0; }
+  .pname { font-size:13.5px; font-weight:600; color:var(--black); }
+  .pdef  { font-size:12.5px; color:var(--gray-600); margin-top:2px; line-height:1.4; }
+
+  /* VOCAB */
+  .sub-tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1rem; }
+  .sub-tab { padding:5px 13px; font-size:12px; font-family:var(--font); font-weight:500; border:1px solid var(--gray-200); border-radius:100px; background:#fff; color:var(--gray-600); cursor:pointer; transition:all 0.15s; }
+  .sub-tab:hover { border-color:var(--pur); color:var(--pur); }
+  .sub-tab.active { background:var(--pur); border-color:var(--pur); color:#fff; }
+  .vpanel { display:none; }
+  .vpanel.active { display:block; }
+  .vtable { width:100%; border-collapse:collapse; font-size:13px; }
+  .vtable th { text-align:left; padding:8px 10px; color:var(--gray-400); font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid var(--gray-200); }
+  .vtable td { padding:8px 10px; border-bottom:1px solid var(--gray-100); color:var(--black); vertical-align:top; }
+  .vtable tr:last-child td { border-bottom:none; }
+  .vtable tr:hover td { background:var(--gray-50); }
+  .vtable code { font-family:var(--mono); font-size:12px; color:var(--pur-dk); background:var(--pur-lt); padding:1px 6px; border-radius:3px; }
+
+  /* FLASHCARDS */
+  .fc-nav { display:flex; align-items:center; gap:12px; margin-bottom:1rem; }
+  .fc-counter { font-size:13px; color:var(--gray-400); flex:1; text-align:center; }
+  .fc-btn { width:36px; height:36px; border:1px solid var(--gray-200); border-radius:50%; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--gray-600); font-size:16px; transition:all 0.15s; }
+  .fc-btn:hover { border-color:var(--pur); color:var(--pur); }
+  .flip-wrap { perspective:1000px; height:160px; cursor:pointer; user-select:none; }
+  .flip-inner { width:100%; height:100%; position:relative; transform-style:preserve-3d; transition:transform 0.5s cubic-bezier(.4,0,.2,1); }
+  .flip-inner.flipped { transform:rotateY(180deg); }
+  .flip-front,.flip-back { position:absolute; inset:0; backface-visibility:hidden; border-radius:var(--radius); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center; border:1px solid var(--gray-200); }
+  .flip-front { background:#fff; }
+  .flip-back  { background:var(--pur-lt); border-color:#C4B5FD; transform:rotateY(180deg); }
+  .flip-term { font-size:24px; font-weight:600; color:var(--black); font-family:var(--mono); }
+  .flip-hint { font-size:11px; color:var(--gray-400); margin-top:6px; text-transform:uppercase; letter-spacing:0.06em; }
+  .flip-def  { font-size:17px; font-weight:600; color:var(--pur-dk); }
+  .flip-ex   { font-size:12px; color:var(--pur); margin-top:6px; font-family:var(--mono); }
+  .fc-shuffle { padding:6px 14px; font-size:12px; font-family:var(--font); border:1px solid var(--gray-200); border-radius:100px; background:#fff; color:var(--gray-600); cursor:pointer; margin-left:auto; display:block; margin-bottom:10px; transition:all 0.15s; }
+  .fc-shuffle:hover { border-color:var(--pur); color:var(--pur); }
+
+  /* QUIZ */
+  .quiz-progress { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:1.25rem; }
+  .q-dot { width:10px; height:10px; border-radius:50%; background:var(--gray-200); transition:background 0.2s; }
+  .q-dot.pass { background:var(--teal); }
+  .q-dot.fail { background:#E24B4A; }
+  .quiz-q-text { font-size:16px; font-weight:600; margin-bottom:1rem; line-height:1.5; }
+  .quiz-opts { display:flex; flex-direction:column; gap:8px; margin-bottom:1rem; }
+  .q-opt { padding:11px 16px; border:1px solid var(--gray-200); border-radius:var(--radius-sm); background:#fff; font-size:14px; font-family:var(--font); cursor:pointer; text-align:left; transition:all 0.15s; }
+  .q-opt:hover:not(:disabled) { border-color:var(--pur); background:var(--pur-lt); }
+  .q-opt.correct { background:var(--teal-lt); border-color:var(--teal); color:var(--teal-dk); font-weight:500; }
+  .q-opt.wrong   { background:#FCEBEB; border-color:#E24B4A; color:#501313; }
+  .q-fb { font-size:13px; padding:9px 14px; border-radius:var(--radius-sm); margin-bottom:1rem; }
+  .q-fb.correct { background:var(--teal-lt); color:var(--teal-dk); }
+  .q-fb.wrong   { background:#FCEBEB; color:#501313; }
+  .quiz-next { padding:9px 20px; font-size:13px; font-family:var(--font); font-weight:500; border:1px solid var(--gray-200); border-radius:100px; background:#fff; cursor:pointer; }
+  .score-wrap { text-align:center; padding:2rem 0 1rem; }
+  .score-big { font-size:52px; font-weight:700; line-height:1; }
+  .score-big.great { color:var(--teal); }
+  .score-big.ok    { color:var(--amber); }
+  .score-big.retry { color:#E24B4A; }
+  .score-msg { font-size:15px; color:var(--gray-600); margin-top:8px; margin-bottom:1.5rem; }
+  .retry-btn { padding:10px 24px; font-size:14px; font-family:var(--font); font-weight:500; border:1px solid var(--pur); border-radius:100px; background:var(--pur-lt); color:var(--pur-dk); cursor:pointer; transition:all 0.15s; }
+  .retry-btn:hover { background:var(--pur); color:#fff; }
+</style>
+</head>
+<body>
+<div class="module">
+
+  <!-- HEADER -->
+  <div class="module-header">
+    <div class="header-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div style="flex:1">
+      <div class="header-text">
+        <h1>Medical Terminology — Chapter 6</h1>
+        <p>Urinary System &nbsp;·&nbsp; 7 sections &nbsp;·&nbsp; 24 flashcards &nbsp;·&nbsp; 12-question quiz</p>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bg"><div class="progress-fill" id="prog-fill"></div></div>
+        <div class="progress-label" id="prog-label">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-row" role="tablist">
+    <button class="tab active" onclick="showSec('overview',this)">Overview</button>
+    <button class="tab" onclick="showSec('anatomy',this)">Anatomy</button>
+    <button class="tab" onclick="showSec('nephron',this)">Nephron</button>
+    <button class="tab" onclick="showSec('pathology',this)">Pathology</button>
+    <button class="tab" onclick="showSec('procedures',this)">Procedures</button>
+    <button class="tab" onclick="showSec('vocab',this)">Vocabulary</button>
+    <button class="tab" onclick="showSec('flashcards',this)">Flashcards</button>
+    <button class="tab" onclick="showSec('quiz',this)">Quiz</button>
+  </div>
+
+  <!-- ===== OVERVIEW ===== -->
+  <div class="section active" id="sec-overview">
+    <div class="card">
+      <div class="card-title" style="color:var(--pur)">Functions of the Urinary System</div>
+      <div class="three-col">
+        <div class="vs-item"><div class="vs-head" style="color:var(--pur)">Filtration</div><div class="vs-body">Kidneys filter ~180 L of blood plasma per day; remove waste products</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--teal)">Excretion</div><div class="vs-body">Eliminate metabolic waste (urea, creatinine, uric acid) in urine</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--blue)">Fluid balance</div><div class="vs-body">Regulate water and electrolyte balance in the body</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--amber)">Acid-base balance</div><div class="vs-body">Maintain blood pH by excreting H⁺ and reabsorbing bicarbonate</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--coral)">Blood pressure</div><div class="vs-body">Regulate BP via renin-angiotensin system and fluid volume</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--green)">Hormone production</div><div class="vs-body">Produce erythropoietin (RBC production) and activate Vitamin D</div></div>
+      </div>
+      <div class="tip pur"><strong>Specialty:</strong> Urology · <strong>Specialist:</strong> Urologist &nbsp;|&nbsp; <strong>Nephrology</strong> · <strong>Nephrologist</strong> (kidney medicine) &nbsp;|&nbsp; Key cf: <strong>nephr/o</strong> (kidney), <strong>ren/o</strong> (kidney), <strong>cyst/o</strong> (bladder), <strong>urin/o</strong> (urine)</div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title" style="color:var(--teal)">Urinary Tract — At a Glance</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <span class="badge badge-pur">Kidneys (nephr/o, ren/o)</span>
+          <span class="badge badge-teal">Renal pelvis (pyel/o)</span>
+          <span class="badge badge-blue">Ureters (ureter/o)</span>
+          <span class="badge badge-amber">Bladder (cyst/o, vesic/o)</span>
+          <span class="badge badge-coral">Trigone (trigon/o)</span>
+          <span class="badge badge-green">Urethra (urethr/o)</span>
+          <span class="badge badge-slate">Urinary meatus (meat/o)</span>
+        </div>
+        <div class="tip teal"><strong>Micturition</strong> = urination = voiding — all mean the act of passing urine</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--amber)">Key Urinary Terms</div>
+        <div style="font-size:13px;color:var(--gray-600);line-height:2.0">
+          <strong style="color:var(--black)">Micturition / Voiding / Urination</strong> — act of passing urine<br>
+          <strong style="color:var(--black)">Urine (urin/o, ur/o)</strong> — waste fluid produced by kidneys<br>
+          <strong style="color:var(--black)">Azotemia (azot/o)</strong> — excess nitrogenous waste in blood<br>
+          <strong style="color:var(--black)">Diuresis</strong> — increased urine production<br>
+          <strong style="color:var(--black)">Urgency</strong> — sudden strong urge to urinate<br>
+          <strong style="color:var(--black)">Hilum (hil/o)</strong> — medial indentation where vessels/ureter enter kidney
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ANATOMY ===== -->
+  <div class="section" id="sec-anatomy">
+    <div class="card">
+      <div class="card-title" style="color:var(--pur)">Urinary Tract — Anatomy & Flow</div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div class="path-row">
+          <div class="path-num" style="background:var(--pur-lt);color:var(--pur-dk)">1</div>
+          <div><div class="path-name">Kidneys<span class="path-cf">nephr/o, ren/o</span></div><div class="path-desc">Bean-shaped organs in retroperitoneal space (behind peritoneum); filter blood → produce urine. Hilum = medial notch where renal artery, vein, and ureter enter/exit.</div></div>
+        </div>
+        <div class="path-row">
+          <div class="path-num" style="background:var(--teal-lt);color:var(--teal-dk)">2</div>
+          <div><div class="path-name">Renal Pelvis<span class="path-cf">pyel/o</span></div><div class="path-desc">Funnel-shaped basin in the kidney that collects urine from the calyces and channels it into the ureter. Pyelonephritis = infection of renal pelvis + kidney.</div></div>
+        </div>
+        <div class="path-row">
+          <div class="path-num" style="background:var(--blue-lt);color:var(--blue-dk)">3</div>
+          <div><div class="path-name">Ureters<span class="path-cf">ureter/o</span></div><div class="path-desc">Two muscular tubes (~25–30 cm) that carry urine from renal pelvis to bladder via peristalsis. Ureteral obstruction by a stone causes severe renal colic.</div></div>
+        </div>
+        <div class="path-row">
+          <div class="path-num" style="background:var(--amber-lt);color:var(--amber-dk)">4</div>
+          <div><div class="path-name">Urinary Bladder<span class="path-cf">cyst/o, vesic/o</span></div><div class="path-desc">Hollow muscular reservoir that stores urine (capacity ~400–600 mL). Trigone (trigon/o) = smooth triangular area at base formed by two ureteral openings and the urethral opening.</div></div>
+        </div>
+        <div class="path-row">
+          <div class="path-num" style="background:var(--coral-lt);color:var(--coral-dk)">5</div>
+          <div><div class="path-name">Urethra<span class="path-cf">urethr/o</span></div><div class="path-desc">Tube from bladder to outside. Female: ~4 cm. Male: ~20 cm (passes through prostate). Controlled by internal and external sphincters.</div></div>
+        </div>
+        <div class="path-row" style="border-bottom:none">
+          <div class="path-num" style="background:var(--green-lt);color:var(--green-dk)">6</div>
+          <div><div class="path-name">Urinary Meatus<span class="path-cf">meat/o</span></div><div class="path-desc">The external opening of the urethra — the exit point for urine from the body.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title" style="color:var(--teal)">Kidney Internal Anatomy</div>
+        <div style="font-size:13px;color:var(--gray-600);line-height:1.9">
+          <strong style="color:var(--black)">Cortex</strong> — outer region; contains glomeruli and proximal tubules<br>
+          <strong style="color:var(--black)">Medulla</strong> — inner region; contains loops of Henle and collecting ducts<br>
+          <strong style="color:var(--black)">Calyx (pl. calyces)</strong> — cup-shaped structures collecting urine from pyramids<br>
+          <strong style="color:var(--black)">Renal pelvis (pyel/o)</strong> — collects urine → ureter<br>
+          <strong style="color:var(--black)">Hilum (hil/o)</strong> — medial notch; entry/exit of vessels and ureter
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--amber)">Urethra: Male vs. Female</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div class="vs-item"><div class="vs-head" style="color:var(--pur)">Female urethra</div><div class="vs-body">~4 cm; short → more susceptible to UTIs. Urethra, vagina, and anus are separate openings.</div></div>
+          <div class="vs-item"><div class="vs-head" style="color:var(--blue)">Male urethra</div><div class="vs-body">~20 cm; longer — passes through prostate gland. Shared pathway for urine and semen. Prostate enlargement (BPH) can obstruct flow.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NEPHRON ===== -->
+  <div class="section" id="sec-nephron">
+    <div class="card">
+      <div class="card-title" style="color:var(--pur)">The Nephron — Functional Unit of the Kidney</div>
+      <div class="tip pur" style="margin-bottom:1rem">Each kidney contains ~1 million nephrons. The nephron produces urine through 3 processes: <strong>Filtration → Reabsorption → Secretion</strong></div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div class="path-row">
+          <div class="path-num" style="background:var(--pur-lt);color:var(--pur-dk)">1</div>
+          <div><div class="path-name">Glomerulus</div><div class="path-desc"><strong>Filtration:</strong> knot of capillaries inside Bowman's capsule. Blood is filtered under pressure — water, glucose, ions, and small molecules pass into the capsule (filtrate). Blood cells and proteins are retained.</div></div>
+        </div>
+        <div class="path-row">
+          <div class="path-num" style="background:var(--teal-lt);color:var(--teal-dk)">2</div>
+          <div><div class="path-name">Proximal Convoluted Tubule (PCT)</div><div class="path-desc"><strong>Reabsorption:</strong> ~65% of filtrate reabsorbed here — glucose, amino acids, sodium, water, bicarbonate.</div></div>
+        </div>
+        <div class="path-row">
+          <div class="path-num" style="background:var(--blue-lt);color:var(--blue-dk)">3</div>
+          <div><div class="path-name">Loop of Henle</div><div class="path-desc">Descending limb: water reabsorption. Ascending limb: sodium and chloride reabsorbed. Creates osmotic gradient for concentration of urine.</div></div>
+        </div>
+        <div class="path-row">
+          <div class="path-num" style="background:var(--amber-lt);color:var(--amber-dk)">4</div>
+          <div><div class="path-name">Distal Convoluted Tubule (DCT)</div><div class="path-desc"><strong>Secretion &amp; fine-tuning:</strong> regulates potassium, acid-base balance; ADH and aldosterone act here.</div></div>
+        </div>
+        <div class="path-row" style="border-bottom:none">
+          <div class="path-num" style="background:var(--coral-lt);color:var(--coral-dk)">5</div>
+          <div><div class="path-name">Collecting Duct</div><div class="path-desc">Final concentration of urine; ADH controls water reabsorption. Urine then passes to calyx → renal pelvis → ureter.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title" style="color:var(--teal)">3 Nephron Processes</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="vs-item"><div class="vs-head" style="color:var(--pur)">1. Filtration</div><div class="vs-body">Glomerulus → Bowman's capsule. Pressure forces small molecules out of blood into filtrate.</div></div>
+          <div class="vs-item"><div class="vs-head" style="color:var(--teal)">2. Reabsorption</div><div class="vs-body">Tubules reclaim useful substances (glucose, water, amino acids) back into blood.</div></div>
+          <div class="vs-item"><div class="vs-head" style="color:var(--amber)">3. Secretion</div><div class="vs-body">Tubules actively move additional waste products (H⁺, drugs) FROM blood INTO filtrate.</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--amber)">Normal Urine Characteristics</div>
+        <div style="font-size:13px;color:var(--gray-600);line-height:2.0">
+          <strong style="color:var(--black)">Volume</strong> — 1,000–2,000 mL/day (average ~1,500 mL)<br>
+          <strong style="color:var(--black)">Color</strong> — pale yellow to amber (from urochrome)<br>
+          <strong style="color:var(--black)">pH</strong> — 4.5–8.0 (average ~6.0, slightly acidic)<br>
+          <strong style="color:var(--black)">Specific gravity</strong> — 1.005–1.030<br>
+          <strong style="color:var(--black)">Normal: no glucose, no protein, no blood, no bacteria</strong>
+        </div>
+        <div class="tip amber">Urinalysis (UA) is the primary lab test for urinary conditions — tests color, pH, specific gravity, glucose, protein, blood, leukocytes, and nitrites</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PATHOLOGY ===== -->
+  <div class="section" id="sec-pathology">
+    <div class="sub-tabs" id="path-tabs">
+      <button class="sub-tab active" onclick="showPath('kidney',this)">Kidney disorders</button>
+      <button class="sub-tab" onclick="showPath('bladder',this)">Bladder &amp; urethra</button>
+      <button class="sub-tab" onclick="showPath('urine',this)">Urinary symptoms</button>
+      <button class="sub-tab" onclick="showPath('diabetes',this)">Diabetes types</button>
+      <button class="sub-tab" onclick="showPath('stones',this)">Urolithiasis</button>
+    </div>
+    <div class="card">
+      <div class="vpanel active" id="pp-kidney">
+        <div class="pitem"><div><div class="pname">Pyelonephritis</div><div class="pdef">Bacterial infection of the renal pelvis AND kidney. <em>pyel/o + nephr/o + -itis</em>. Most common from ascending UTI (E. coli). Symptoms: flank pain, fever, CVA tenderness, dysuria.</div></div></div>
+        <div class="pitem"><div><div class="pname">Glomerulonephritis</div><div class="pdef">Inflammation of the glomeruli; often immune-mediated. Causes: strep infection, autoimmune (IgA nephropathy, lupus). Signs: hematuria, proteinuria, hypertension, edema.</div></div></div>
+        <div class="pitem"><div><div class="pname">Nephrotic syndrome</div><div class="pdef">Glomerular damage → massive proteinuria (&gt;3.5 g/day), hypoalbuminemia, edema, hyperlipidemia</div></div></div>
+        <div class="pitem"><div><div class="pname">Nephroptosis</div><div class="pdef">Drooping or downward displacement of a kidney. <em>nephr/o + -ptosis (drooping)</em>. Also called floating kidney.</div></div></div>
+        <div class="pitem"><div><div class="pname">Polycystic kidney disease (PKD)</div><div class="pdef">Hereditary; multiple cysts replace kidney tissue; progressive renal failure; flank pain, hematuria, hypertension</div></div></div>
+        <div class="pitem"><div><div class="pname">Acute kidney injury (AKI)</div><div class="pdef">Sudden loss of kidney function; causes: dehydration (prerenal), obstruction (postrenal), or direct damage (intrarenal); elevated BUN and creatinine</div></div></div>
+        <div class="pitem"><div><div class="pname">Chronic kidney disease (CKD)</div><div class="pdef">Progressive loss of kidney function over months/years; 5 stages based on GFR; end stage requires dialysis or transplant. <em>azot/o + -emia = azotemia</em> (nitrogenous waste buildup)</div></div></div>
+      </div>
+      <div class="vpanel" id="pp-bladder">
+        <div class="pitem"><div><div class="pname">Cystitis</div><div class="pdef">Bladder infection/inflammation. <em>cyst/o + -itis</em>. Most common UTI; more common in females; caused by E. coli. Symptoms: dysuria, frequency, urgency, hematuria.</div></div></div>
+        <div class="pitem"><div><div class="pname">Cystocele</div><div class="pdef">Herniation of the bladder into the vagina. <em>cyst/o + -cele (hernia/bulge)</em>. Caused by weakened pelvic floor; common after childbirth. Symptoms: pressure, incontinence.</div></div></div>
+        <div class="pitem"><div><div class="pname">Urethral stenosis</div><div class="pdef">Narrowing of the urethra. <em>urethr/o + stenosis</em>. Obstructs urinary flow; causes weak stream, retention, recurrent UTIs. Treatment: meatotomy or dilation.</div></div></div>
+        <div class="pitem"><div><div class="pname">Vesicoureteral reflux (VUR)</div><div class="pdef">Backflow of urine from bladder into ureters/kidneys. <em>vesic/o + ureter/o + re- + -flux</em>. Risk for ascending pyelonephritis; common in children.</div></div></div>
+        <div class="pitem"><div><div class="pname">Urinary incontinence</div><div class="pdef">Involuntary leakage of urine. Types: stress (cough/sneeze), urge (overactive bladder), overflow, mixed. <em>in- + continent</em></div></div></div>
+        <div class="pitem"><div><div class="pname">Urinary retention</div><div class="pdef">Inability to empty the bladder fully; acute or chronic. Causes: BPH, urethral stenosis, neurogenic bladder. Treatment: catheterization.</div></div></div>
+        <div class="pitem"><div><div class="pname">Bladder carcinoma</div><div class="pdef">Most common urinary malignancy; transitional cell carcinoma; painless hematuria is classic presentation; risk: smoking, chemical exposure</div></div></div>
+      </div>
+      <div class="vpanel" id="pp-urine">
+        <div class="pitem"><div><div class="pname">Anuria</div><div class="pdef">Absence of urine output (&lt;50 mL/day). <em>an- (without) + -uria (urine condition)</em>. Medical emergency; indicates severe renal failure.</div></div></div>
+        <div class="pitem"><div><div class="pname">Oliguria</div><div class="pdef">Decreased urine output (50–400 mL/day). <em>olig/o + -uria</em>. Sign of dehydration or renal failure.</div></div></div>
+        <div class="pitem"><div><div class="pname">Polyuria</div><div class="pdef">Excessive urine production (&gt;3 L/day). <em>poly- (many) + -uria</em>. Associated with diabetes mellitus, diabetes insipidus, diuretics.</div></div></div>
+        <div class="pitem"><div><div class="pname">Dysuria</div><div class="pdef">Painful or difficult urination. <em>dys- (difficult) + -uria</em>. Classic symptom of UTI, urethritis, kidney stones.</div></div></div>
+        <div class="pitem"><div><div class="pname">Hematuria</div><div class="pdef">Blood in urine. <em>hemat/o + -uria</em>. Gross (visible) or microscopic. Causes: UTI, stones, tumor, trauma.</div></div></div>
+        <div class="pitem"><div><div class="pname">Proteinuria</div><div class="pdef">Protein in urine. <em>protein + -uria</em>. Indicates glomerular damage. Massive proteinuria = nephrotic syndrome.</div></div></div>
+        <div class="pitem"><div><div class="pname">Glycosuria</div><div class="pdef">Glucose in urine. <em>glycos/o + -uria</em>. Abnormal; occurs when blood glucose exceeds renal threshold (~180 mg/dL). Classic sign of uncontrolled diabetes mellitus.</div></div></div>
+        <div class="pitem"><div><div class="pname">Nocturia</div><div class="pdef">Excessive urination at night; disrupts sleep; associated with BPH, diabetes, heart failure</div></div></div>
+        <div class="pitem"><div><div class="pname">Pyuria</div><div class="pdef">Pus in urine. <em>py/o + -uria</em>. Indicates infection (UTI, pyelonephritis, STI). WBCs visible on microscopy.</div></div></div>
+        <div class="pitem"><div><div class="pname">Azoturia / Azotemia</div><div class="pdef">Excess nitrogenous waste (urea, creatinine) in urine/blood. <em>azot/o</em> = nitrogen. Indicates renal insufficiency.</div></div></div>
+        <div class="tip pur"><strong>-uria suffix pattern:</strong> a- (no) · olig/o (little) · poly- (much) · dys- (painful) · hemat/o (blood) · glycos/o (glucose) · py/o (pus) · noct/i (night) · protein (protein)</div>
+      </div>
+      <div class="vpanel" id="pp-diabetes">
+        <div class="tip coral" style="margin-bottom:1rem"><strong>Important distinction:</strong> Diabetes insipidus and Diabetes mellitus are very different diseases that share the prefix <em>di-</em> (through/across) and symptom of polyuria and polydipsia.</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="border:2px solid var(--pur);border-radius:var(--radius-sm);padding:14px">
+            <div style="font-size:15px;font-weight:600;color:var(--pur);margin-bottom:8px">Diabetes Insipidus (DI)</div>
+            <div style="font-size:13px;color:var(--gray-600);line-height:1.8">
+              <strong style="color:var(--black)">Cause:</strong> Deficiency of ADH (antidiuretic hormone) OR kidney resistance to ADH<br>
+              <strong style="color:var(--black)">Mechanism:</strong> Collecting ducts cannot reabsorb water → massive dilute urine output<br>
+              <strong style="color:var(--black)">Symptoms:</strong> Polyuria (may exceed 20 L/day!), polydipsia (intense thirst)<br>
+              <strong style="color:var(--black)">Urine:</strong> Very dilute (low specific gravity, no glucose)<br>
+              <strong style="color:var(--black)">Blood glucose:</strong> NORMAL<br>
+              <strong style="color:var(--black)">Treatment:</strong> Desmopressin (synthetic ADH)
+            </div>
+          </div>
+          <div style="border:2px solid var(--amber);border-radius:var(--radius-sm);padding:14px">
+            <div style="font-size:15px;font-weight:600;color:var(--amber);margin-bottom:8px">Diabetes Mellitus (DM)</div>
+            <div style="font-size:13px;color:var(--gray-600);line-height:1.8">
+              <strong style="color:var(--black)">Cause:</strong> Insulin deficiency (Type 1) or insulin resistance (Type 2)<br>
+              <strong style="color:var(--black)">Mechanism:</strong> Elevated blood glucose exceeds renal threshold → osmotic diuresis → glucose pulls water into urine<br>
+              <strong style="color:var(--black)">Symptoms:</strong> Polyuria, polydipsia (poly- = many), polyphagia (increased appetite)<br>
+              <strong style="color:var(--black)">Urine:</strong> Contains glucose (glycosuria) and possibly ketones<br>
+              <strong style="color:var(--black)">Blood glucose:</strong> ELEVATED<br>
+              <strong style="color:var(--black)">Treatment:</strong> Insulin (Type 1), metformin/lifestyle (Type 2)
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vpanel" id="pp-stones">
+        <div class="pitem"><div><div class="pname">Urolithiasis / Nephrolithiasis</div><div class="pdef">Urinary tract stones. <em>lith/o + -iasis</em>. Kidney stones (nephrolithiasis). Most common type: calcium oxalate stones. Severe colicky flank pain radiating to groin.</div></div></div>
+        <div class="pitem"><div><div class="pname">Renal colic</div><div class="pdef">Severe intermittent pain caused by stone passing through ureter; one of the most painful conditions known; waves of pain, nausea, vomiting, hematuria</div></div></div>
+        <div class="pitem"><div><div class="pname">Stone types</div><div class="pdef"><strong>Calcium oxalate</strong> (most common, ~80%) · <strong>Struvite</strong> (infection-related) · <strong>Uric acid</strong> (gout, dehydration) · <strong>Cystine</strong> (hereditary)</div></div></div>
+        <div class="pitem"><div><div class="pname">Nephrolithotomy</div><div class="pdef">Surgical incision into kidney to remove a stone. <em>nephr/o + lith/o + -tomy (incision)</em>. For large stones not amenable to ESWL.</div></div></div>
+        <div class="pitem"><div><div class="pname">Lithotripsy / ESWL</div><div class="pdef">Crushing of stones. <em>lith/o + -tripsy (crushing)</em>. ESWL = extracorporeal shock wave lithotripsy; sound waves break stone into passable fragments.</div></div></div>
+        <div class="tip amber"><strong>Stone treatment by size:</strong> Small (&lt;4 mm) → hydration + wait. Medium (4–10 mm) → ESWL or ureteroscopy. Large (&gt;10 mm) → percutaneous nephrolithotomy.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PROCEDURES ===== -->
+  <div class="section" id="sec-procedures">
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title" style="color:var(--teal)">Diagnostic Procedures</div>
+        <div class="pitem"><div><div class="pname">Urinalysis (UA)</div><div class="pdef">urin/o + -analysis; complete physical, chemical, microscopic exam of urine; most important urinary test; detects infection, diabetes, kidney disease</div></div></div>
+        <div class="pitem"><div><div class="pname">Urine culture &amp; sensitivity (C&amp;S)</div><div class="pdef">Identifies bacterial organisms and antibiotic sensitivities; gold standard for UTI diagnosis</div></div></div>
+        <div class="pitem"><div><div class="pname">Cystoscopy (cyst/o + -scopy)</div><div class="pdef">Direct visual examination of the bladder interior via a cystoscope (cyst/o + -scope); diagnoses tumors, stones, bleeding; can perform biopsies and remove small stones</div></div></div>
+        <div class="pitem"><div><div class="pname">Voiding cystourethrography (VCUG)</div><div class="pdef">vesic/o + urethr/o + -graphy; X-ray imaging during urination; diagnoses vesicoureteral reflux (VUR) and urethral stenosis</div></div></div>
+        <div class="pitem"><div><div class="pname">Intravenous pyelogram (IVP)</div><div class="pdef">pyel/o + -gram; IV contrast dye excreted by kidneys; X-ray shows renal pelvis, ureters, bladder; evaluates stones, tumors, obstruction</div></div></div>
+        <div class="pitem"><div><div class="pname">Renal ultrasound</div><div class="pdef">Imaging of kidneys and bladder; first-line for hydronephrosis, stones, cysts, tumors; no radiation</div></div></div>
+        <div class="pitem"><div><div class="pname">BUN &amp; creatinine</div><div class="pdef">Blood tests measuring nitrogenous waste; elevated in renal failure; creatinine more specific for GFR</div></div></div>
+        <div class="pitem"><div><div class="pname">GFR (glomerular filtration rate)</div><div class="pdef">Measures kidney function; calculated from serum creatinine, age, sex; normal &gt;90 mL/min; staging CKD</div></div></div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--coral)">Therapeutic Procedures</div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--gray-400);margin-bottom:6px">Urinary drainage</div>
+        <div class="pitem"><div><div class="pname">Catheterization</div><div class="pdef">Insertion of a catheter (flexible tube) into bladder via urethra to drain urine; for retention, surgery, incontinence management; Foley catheter = indwelling</div></div></div>
+        <div class="pitem"><div><div class="pname">Nephrostomy</div><div class="pdef">nephr/o + -stomy; percutaneous tube into renal pelvis to drain urine; used when ureter is obstructed</div></div></div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--gray-400);margin:10px 0 6px">Kidney procedures</div>
+        <div class="pitem"><div><div class="pname">Nephropexy (nephr/o + -pexy)</div><div class="pdef">Surgical fixation of a floating/drooping kidney (-pexy = fixation). Treats nephroptosis.</div></div></div>
+        <div class="pitem"><div><div class="pname">Nephrolithotomy</div><div class="pdef">nephr/o + lith/o + -tomy; kidney incision to remove stone</div></div></div>
+        <div class="pitem"><div><div class="pname">Lithotripsy (ESWL)</div><div class="pdef">lith/o + -tripsy; crushing of urinary stones via shock waves</div></div></div>
+        <div class="pitem"><div><div class="pname">Nephrectomy</div><div class="pdef">nephr/o + -ectomy; surgical removal of kidney; for cancer, donation, severe infection</div></div></div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--gray-400);margin:10px 0 6px">Urethral &amp; bladder</div>
+        <div class="pitem"><div><div class="pname">Meatotomy (meat/o + -tomy)</div><div class="pdef">Incision of the urinary meatus (external urethral opening) to widen it; treats meatal stenosis</div></div></div>
+        <div class="pitem"><div><div class="pname">Cystectomy</div><div class="pdef">cyst/o + -ectomy; surgical removal of the bladder; for bladder cancer; requires urinary diversion</div></div></div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--gray-400);margin:10px 0 6px">Renal replacement</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:4px">
+          <span class="badge badge-pur">Hemodialysis</span>
+          <span class="badge badge-teal">Peritoneal dialysis</span>
+          <span class="badge badge-blue">Renal transplant</span>
+        </div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--gray-400);margin:10px 0 6px">Pharmacology</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px">
+          <span class="badge badge-amber">Diuretics</span>
+          <span class="badge badge-coral">Antibiotics (UTI)</span>
+          <span class="badge badge-green">Analgesics (renal colic)</span>
+          <span class="badge badge-slate">Desmopressin (DI)</span>
+          <span class="badge badge-pur">ACE inhibitors (CKD)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== VOCAB ===== -->
+  <div class="section" id="sec-vocab">
+    <div class="sub-tabs" id="vocab-tabs">
+      <button class="sub-tab active" onclick="showVocab('combining',this)">Combining forms</button>
+      <button class="sub-tab" onclick="showVocab('prefixes',this)">Prefixes</button>
+      <button class="sub-tab" onclick="showVocab('suffixes',this)">Suffixes</button>
+      <button class="sub-tab" onclick="showVocab('decode',this)">Term decoding</button>
+    </div>
+    <div class="card">
+      <div class="vpanel active" id="vt-combining">
+        <table class="vtable"><thead><tr><th>Combining form</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+          <tr><td><code>azot/o</code></td><td>nitrogenous waste, urea</td><td>azotemia, azoturia</td></tr>
+          <tr><td><code>cyst/o</code></td><td>bladder, cyst, sac</td><td>cystitis, cystoscopy, cystocele</td></tr>
+          <tr><td><code>gluc/o, glycos/o</code></td><td>glucose, sugar</td><td>glycosuria, glucosuria</td></tr>
+          <tr><td><code>hil/o</code></td><td>hilum (notch/entry point)</td><td>hilar region</td></tr>
+          <tr><td><code>lith/o</code></td><td>stone, calculus</td><td>lithotripsy, nephrolithiasis</td></tr>
+          <tr><td><code>meat/o</code></td><td>meatus (opening)</td><td>meatotomy, meatal stenosis</td></tr>
+          <tr><td><code>nephr/o</code></td><td>kidney</td><td>nephritis, nephrectomy, nephroptosis</td></tr>
+          <tr><td><code>py/o</code></td><td>pus</td><td>pyuria, pyonephrosis</td></tr>
+          <tr><td><code>pyel/o</code></td><td>renal pelvis</td><td>pyelonephritis, pyelogram</td></tr>
+          <tr><td><code>ren/o</code></td><td>kidney</td><td>renal, renogram</td></tr>
+          <tr><td><code>trigon/o</code></td><td>trigone (bladder triangle)</td><td>trigonitis</td></tr>
+          <tr><td><code>ureter/o</code></td><td>ureter</td><td>ureterolithiasis, ureteroscopy</td></tr>
+          <tr><td><code>urethr/o</code></td><td>urethra</td><td>urethritis, urethral stenosis</td></tr>
+          <tr><td><code>urin/o, ur/o</code></td><td>urine, urinary</td><td>urinalysis, urology</td></tr>
+          <tr><td><code>vesic/o</code></td><td>bladder, blister</td><td>vesicoureteral, vesicostomy</td></tr>
+        </tbody></table>
+      </div>
+      <div class="vpanel" id="vt-prefixes">
+        <table class="vtable"><thead><tr><th>Prefix</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+          <tr><td><code>an-</code></td><td>without, absence</td><td>anuria (no urine)</td></tr>
+          <tr><td><code>di-</code></td><td>through, two</td><td>diabetes (di- = through; excessive flow)</td></tr>
+          <tr><td><code>dys-</code></td><td>difficult, painful, abnormal</td><td>dysuria (painful urination)</td></tr>
+          <tr><td><code>poly-</code></td><td>many, much, excessive</td><td>polyuria, polydipsia</td></tr>
+          <tr><td><code>re-</code></td><td>back, again</td><td>reflux (backward flow)</td></tr>
+        </tbody></table>
+      </div>
+      <div class="vpanel" id="vt-suffixes">
+        <table class="vtable"><thead><tr><th>Suffix</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+          <tr><td><code>-cele</code></td><td>hernia, protrusion, swelling</td><td>cystocele (bladder herniation)</td></tr>
+          <tr><td><code>-dipsia</code></td><td>thirst</td><td>polydipsia (excessive thirst)</td></tr>
+          <tr><td><code>-flux</code></td><td>flow</td><td>reflux (backward flow)</td></tr>
+          <tr><td><code>-graphy</code></td><td>process of recording/imaging</td><td>cystourethrography</td></tr>
+          <tr><td><code>-lithotomy</code></td><td>incision to remove stone</td><td>nephrolithotomy</td></tr>
+          <tr><td><code>-lysis</code></td><td>breakdown, destruction</td><td>litholysis (dissolving stones)</td></tr>
+          <tr><td><code>-pexy</code></td><td>surgical fixation</td><td>nephropexy (fixation of kidney)</td></tr>
+          <tr><td><code>-ptosis</code></td><td>drooping, prolapse</td><td>nephroptosis (drooping kidney)</td></tr>
+          <tr><td><code>-scope</code></td><td>instrument for viewing</td><td>cystoscope</td></tr>
+          <tr><td><code>-scopy</code></td><td>visual examination</td><td>cystoscopy</td></tr>
+          <tr><td><code>-tomy</code></td><td>incision into</td><td>meatotomy, nephrolithotomy</td></tr>
+          <tr><td><code>-tripsy</code></td><td>crushing</td><td>lithotripsy (stone crushing)</td></tr>
+          <tr><td><code>-uria</code></td><td>condition of urine</td><td>anuria, dysuria, glycosuria, hematuria</td></tr>
+        </tbody></table>
+      </div>
+      <div class="vpanel" id="vt-decode">
+        <table class="vtable"><thead><tr><th>Term</th><th>Word parts</th><th>Definition</th></tr></thead><tbody>
+          <tr><td>Anuria</td><td>an- + -uria</td><td>Absence/no urine output</td></tr>
+          <tr><td>Cystocele</td><td>cyst/o + -cele</td><td>Herniation/protrusion of the bladder</td></tr>
+          <tr><td>Cystoscope</td><td>cyst/o + -scope</td><td>Instrument for viewing the bladder</td></tr>
+          <tr><td>Dysuria</td><td>dys- + -uria</td><td>Condition of painful/difficult urination</td></tr>
+          <tr><td>Glycosuria</td><td>glycos/o + -uria</td><td>Glucose in the urine</td></tr>
+          <tr><td>Lithotripsy</td><td>lith/o + -tripsy</td><td>Crushing of stones</td></tr>
+          <tr><td>Meatotomy</td><td>meat/o + -tomy</td><td>Incision of the urinary meatus</td></tr>
+          <tr><td>Nephrolithotomy</td><td>nephr/o + lith/o + -tomy</td><td>Incision into kidney to remove stone</td></tr>
+          <tr><td>Nephropexy</td><td>nephr/o + -pexy</td><td>Surgical fixation of a drooping kidney</td></tr>
+          <tr><td>Nephroptosis</td><td>nephr/o + -ptosis</td><td>Drooping/downward displacement of kidney</td></tr>
+          <tr><td>Polydipsia</td><td>poly- + -dipsia</td><td>Condition of excessive thirst</td></tr>
+          <tr><td>Polyuria</td><td>poly- + -uria</td><td>Condition of excessive urine output</td></tr>
+          <tr><td>Pyelonephritis</td><td>pyel/o + nephr/o + -itis</td><td>Inflammation of renal pelvis and kidney</td></tr>
+          <tr><td>Urinalysis</td><td>urin/o + analysis</td><td>Examination of urine</td></tr>
+          <tr><td>Vesicoureteral reflux</td><td>vesic/o + ureter/o + re- + -flux</td><td>Backflow of urine from bladder into ureters</td></tr>
+          <tr><td>Voiding cystourethrography (VCUG)</td><td>vesic/o + urethr/o + -graphy</td><td>X-ray imaging of bladder and urethra during voiding</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FLASHCARDS ===== -->
+  <div class="section" id="sec-flashcards">
+    <button class="fc-shuffle" onclick="shuffleCards()">⇄ Shuffle cards</button>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="prevCard()">&#8592;</button>
+      <div class="fc-counter" id="fc-counter">1 / 24</div>
+      <button class="fc-btn" onclick="nextCard()">&#8594;</button>
+    </div>
+    <div class="flip-wrap" onclick="flipCard()">
+      <div class="flip-inner" id="fc-inner">
+        <div class="flip-front"><div class="flip-term" id="fc-term">nephr/o</div><div class="flip-hint">click to reveal</div></div>
+        <div class="flip-back"><div class="flip-def" id="fc-def">kidney</div><div class="flip-ex" id="fc-ex">nephritis, nephrectomy</div></div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--gray-400);text-align:center;margin-top:10px">Click to flip · Arrows to navigate</div>
+  </div>
+
+  <!-- ===== QUIZ ===== -->
+  <div class="section" id="sec-quiz">
+    <div class="card" id="quiz-card">
+      <div class="quiz-progress" id="quiz-dots"></div>
+      <div class="quiz-q-text" id="quiz-q"></div>
+      <div class="quiz-opts" id="quiz-opts"></div>
+      <div id="quiz-fb" style="display:none"></div>
+      <button class="quiz-next" id="quiz-next" onclick="nextQ()" style="display:none">Next question →</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const SECS = ['overview','anatomy','nephron','pathology','procedures','vocab','flashcards','quiz'];
+const visited = new Set(['overview']);
+function showSec(id, btn){
+  SECS.forEach(s=>document.getElementById('sec-'+s).classList.remove('active'));
+  document.querySelectorAll('.nav-row .tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active'); btn.classList.add('active');
+  visited.add(id);
+  const pct=Math.round((visited.size/SECS.length)*100);
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-label').textContent=pct+'%';
+  if(id==='flashcards') renderCard();
+  if(id==='quiz' && !quizStarted) startQuiz();
+}
+function showPath(id,btn){
+  document.querySelectorAll('[id^="pp-"]').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('#path-tabs .sub-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('pp-'+id).classList.add('active'); btn.classList.add('active');
+}
+function showVocab(id,btn){
+  document.querySelectorAll('[id^="vt-"]').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('#vocab-tabs .sub-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('vt-'+id).classList.add('active'); btn.classList.add('active');
+}
+
+let allCards = [
+  {term:'nephr/o', def:'kidney', ex:'nephritis, nephrectomy, nephroptosis'},
+  {term:'ren/o', def:'kidney', ex:'renal, renogram'},
+  {term:'pyel/o', def:'renal pelvis', ex:'pyelonephritis, pyelogram'},
+  {term:'cyst/o', def:'bladder, cyst, sac', ex:'cystitis, cystoscopy, cystocele'},
+  {term:'vesic/o', def:'bladder, blister', ex:'vesicoureteral reflux'},
+  {term:'ureter/o', def:'ureter', ex:'ureterolithiasis, ureteroscopy'},
+  {term:'urethr/o', def:'urethra', ex:'urethritis, urethral stenosis'},
+  {term:'urin/o, ur/o', def:'urine, urinary', ex:'urinalysis, urology'},
+  {term:'lith/o', def:'stone, calculus', ex:'lithotripsy, nephrolithiasis'},
+  {term:'meat/o', def:'meatus (opening)', ex:'meatotomy, meatal stenosis'},
+  {term:'azot/o', def:'nitrogenous waste', ex:'azotemia, azoturia'},
+  {term:'glycos/o', def:'glucose, sugar', ex:'glycosuria'},
+  {term:'trigon/o', def:'trigone (bladder triangle)', ex:'trigonitis'},
+  {term:'-uria', def:'condition of urine', ex:'anuria, dysuria, glycosuria'},
+  {term:'-tripsy', def:'crushing', ex:'lithotripsy'},
+  {term:'-pexy', def:'surgical fixation', ex:'nephropexy'},
+  {term:'-ptosis', def:'drooping, prolapse', ex:'nephroptosis'},
+  {term:'-cele', def:'hernia, protrusion', ex:'cystocele'},
+  {term:'-dipsia', def:'thirst', ex:'polydipsia'},
+  {term:'-lithotomy', def:'incision to remove stone', ex:'nephrolithotomy'},
+  {term:'poly-', def:'many, much, excessive', ex:'polyuria, polydipsia'},
+  {term:'an-', def:'without, absence', ex:'anuria'},
+  {term:'dys-', def:'difficult, painful', ex:'dysuria'},
+  {term:'re-', def:'back, again', ex:'vesicoureteral reflux'},
+];
+let fcIdx=0, fcFlipped=false;
+function renderCard(){
+  const c=allCards[fcIdx];
+  document.getElementById('fc-term').textContent=c.term;
+  document.getElementById('fc-def').textContent=c.def;
+  document.getElementById('fc-ex').textContent=c.ex;
+  document.getElementById('fc-counter').textContent=(fcIdx+1)+' / '+allCards.length;
+  document.getElementById('fc-inner').classList.remove('flipped'); fcFlipped=false;
+}
+function flipCard(){ fcFlipped=!fcFlipped; document.getElementById('fc-inner').classList.toggle('flipped',fcFlipped); }
+function nextCard(){ fcIdx=(fcIdx+1)%allCards.length; renderCard(); }
+function prevCard(){ fcIdx=(fcIdx-1+allCards.length)%allCards.length; renderCard(); }
+function shuffleCards(){
+  for(let i=allCards.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [allCards[i],allCards[j]]=[allCards[j],allCards[i]]; }
+  fcIdx=0; renderCard();
+}
+
+const QUIZ=[
+  {q:'What does pyel/o mean?', ans:'Renal pelvis', opts:['Pus','Kidney','Renal pelvis','Ureter']},
+  {q:'Pyelonephritis (pyel/o + nephr/o + -itis) is:', ans:'Infection of the renal pelvis and kidney', opts:['Bladder infection','Infection of the renal pelvis and kidney','Kidney stone','Drooping kidney']},
+  {q:'Nephroptosis means:', ans:'Drooping or downward displacement of the kidney', opts:['Kidney infection','Kidney stone','Drooping or downward displacement of the kidney','Surgical removal of kidney']},
+  {q:'Glycosuria indicates:', ans:'Glucose in the urine; often signals diabetes mellitus', opts:['Blood in the urine','Pus in the urine','Glucose in the urine; often signals diabetes mellitus','Protein in the urine']},
+  {q:'Which suffix means "crushing"?', ans:'-tripsy', opts:['-tomy','-tripsy','-pexy','-lysis']},
+  {q:'Anuria (an- + -uria) means:', ans:'No urine output; medical emergency', opts:['Painful urination','Excessive urine','No urine output; medical emergency','Glucose in urine']},
+  {q:'The key difference between Diabetes Insipidus and Diabetes Mellitus is:', ans:'DI = ADH deficiency (normal glucose); DM = insulin problem (high glucose)', opts:['DI involves glucose in urine; DM does not','DI = ADH deficiency (normal glucose); DM = insulin problem (high glucose)','They are the same disease','DM only affects the urinary system']},
+  {q:'Cystocele (cyst/o + -cele) is:', ans:'Herniation/protrusion of the bladder', opts:['Bladder inflammation','Bladder stone','Herniation/protrusion of the bladder','Surgical removal of bladder']},
+  {q:'Nephropexy (nephr/o + -pexy) means:', ans:'Surgical fixation of a kidney', opts:['Removal of kidney','Incision of kidney','Crushing kidney stones','Surgical fixation of a kidney']},
+  {q:'Meatotomy (meat/o + -tomy) is:', ans:'Incision of the urinary meatus to widen it', opts:['Removing the meatus','Incision of the urinary meatus to widen it','Viewing the meatus','Creating an opening in the meatus']},
+  {q:'Vesicoureteral reflux (VUR) involves:', ans:'Backflow of urine from bladder into ureters', opts:['Stone in the ureter','Backflow of urine from bladder into ureters','Bladder infection','Drooping ureter']},
+  {q:'Which combining form means "stone"?', ans:'lith/o', opts:['azot/o','meat/o','lith/o','trigon/o']},
+];
+let qIdx=0, score=0, results=[], quizStarted=false;
+function startQuiz(){ quizStarted=true; qIdx=0; score=0; results=[]; renderQ(); }
+function renderQ(){
+  const q=QUIZ[qIdx];
+  document.getElementById('quiz-dots').innerHTML=QUIZ.map((_,i)=>`<div class="q-dot ${i<results.length?(results[i]?'pass':'fail'):''}" title="Q${i+1}"></div>`).join('');
+  document.getElementById('quiz-q').textContent=(qIdx+1)+'. '+q.q;
+  document.getElementById('quiz-opts').innerHTML=q.opts.map(o=>`<button class="q-opt" onclick="checkAns(this,'${o.replace(/'/g,"\\'")}','${q.ans.replace(/'/g,"\\'")}')">${o}</button>`).join('');
+  const fb=document.getElementById('quiz-fb'); fb.style.display='none'; fb.className='q-fb';
+  document.getElementById('quiz-next').style.display='none';
+}
+function checkAns(btn, chosen, correct){
+  document.querySelectorAll('.q-opt').forEach(b=>{ b.disabled=true; if(b.textContent===correct) b.classList.add('correct'); });
+  const ok=chosen===correct;
+  if(ok){ score++; btn.classList.add('correct'); } else btn.classList.add('wrong');
+  results.push(ok);
+  document.getElementById('quiz-dots').innerHTML=QUIZ.map((_,i)=>`<div class="q-dot ${i<results.length?(results[i]?'pass':'fail'):''}" title="Q${i+1}"></div>`).join('');
+  const fb=document.getElementById('quiz-fb');
+  fb.style.display='block'; fb.className='q-fb '+(ok?'correct':'wrong');
+  fb.textContent=ok?'✓ Correct!':`✗ Correct answer: ${correct}`;
+  const nxt=document.getElementById('quiz-next');
+  nxt.style.display='inline-block';
+  nxt.textContent=qIdx===QUIZ.length-1?'See results':'Next question →';
+}
+function nextQ(){
+  qIdx++;
+  if(qIdx>=QUIZ.length){ showScore(); return; }
+  renderQ();
+}
+function showScore(){
+  const pct=Math.round((score/QUIZ.length)*100);
+  const cls=pct>=80?'great':pct>=60?'ok':'retry';
+  const msg=pct>=90?'Outstanding! Chapter 6 mastered.':pct>=70?'Good work! Review a few terms.':'Keep studying — check pathology and vocab tabs.';
+  document.getElementById('quiz-card').innerHTML=`
+    <div class="score-wrap">
+      <div class="score-big ${cls}">${score}/${QUIZ.length}</div>
+      <div style="font-size:13px;color:var(--gray-400);margin-top:4px">${pct}%</div>
+      <div class="score-msg">${msg}</div>
+      <button class="retry-btn" onclick="retakeQuiz()">Retake quiz</button>
+    </div>`;
+}
+function retakeQuiz(){
+  document.getElementById('quiz-card').innerHTML=`
+    <div class="quiz-progress" id="quiz-dots"></div>
+    <div class="quiz-q-text" id="quiz-q"></div>
+    <div class="quiz-opts" id="quiz-opts"></div>
+    <div id="quiz-fb" style="display:none"></div>
+    <button class="quiz-next" id="quiz-next" onclick="nextQ()" style="display:none">Next question →</button>`;
+  qIdx=0; score=0; results=[]; renderQ();
+}
+</script>
+</body>
+</html>
