@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 6 — Urinary System | Medical Terminology Study Guide</title>
+<style>
+:root{
+  --bg-primary:#ffffff;--bg-secondary:#f6f5ff;--bg-success:#e6f4ea;
+  --bg-warning:#fff8e1;--bg-danger:#fce8e8;--bg-info:#e8e6fa;--bg-muted:#f5f4f8;
+  --text-primary:#111111;--text-secondary:#555555;--text-muted:#888888;
+  --text-success:#1b5e20;--text-warning:#854F0B;--text-danger:#9c2020;--text-info:#3730a3;
+  --border:rgba(0,0,0,0.18);--border-light:rgba(0,0,0,0.09);
+  --border-success:#1A7A52;--border-danger:#c62828;--border-info:#534AB7;
+  --viol:#534AB7;--vl:#E8E6FA;--r:8px;--rl:12px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg-primary:#1e1e1e;--bg-secondary:#1a1830;--bg-success:#0d2a1a;
+    --bg-warning:#2a1f00;--bg-danger:#2a0d0d;--bg-info:#1a1840;--bg-muted:#2a2a2a;
+    --text-primary:#eeeeee;--text-secondary:#aaaaaa;--text-muted:#666666;
+    --text-success:#81c784;--text-warning:#ffcc66;--text-danger:#e57373;--text-info:#9b93e0;
+    --border:rgba(255,255,255,0.15);--border-light:rgba(255,255,255,0.08);
+    --vl:#1a1840;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg-secondary);color:var(--text-primary);line-height:1.6;padding:0 0 3rem}
+.page-header{background:var(--bg-primary);border-bottom:0.5px solid var(--border);padding:1.25rem 2rem;margin-bottom:1.5rem}
+.page-header h1{font-size:22px;font-weight:500}.page-header p{font-size:14px;color:var(--text-secondary);margin-top:3px}
+.container{max-width:900px;margin:0 auto;padding:0 1.25rem}.sg{padding:.5rem 0 2rem}
+.tab-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem}
+.tab-btn{padding:6px 13px;border-radius:var(--r);border:0.5px solid var(--border);background:var(--bg-primary);color:var(--text-secondary);font-size:13px;cursor:pointer;transition:all .15s}
+.tab-btn.active{background:var(--bg-info);color:var(--text-info);border-color:var(--viol)}
+.tab-btn:hover:not(.active){background:var(--bg-muted)}
+.sec{display:none}.sec.active{display:block}
+.sec-hdr{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-secondary);margin:1.4rem 0 .65rem;padding-bottom:4px;border-bottom:0.5px solid var(--border-light)}
+.pg{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:1rem;background:var(--bg-muted);padding:.75rem 1rem;border-radius:var(--r)}
+.stat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.25rem}
+.stat-chip{padding:5px 12px;border-radius:var(--r);border:0.5px solid var(--border-light);font-size:12px;background:var(--bg-primary)}.stat-chip strong{font-weight:600}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.ccard{background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--rl);padding:.9rem 1.1rem}
+.ccard .ctitle{font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:5px}
+.ccard .cwt{font-size:11px;font-weight:600;padding:2px 7px;border-radius:var(--r);display:inline-block;margin-bottom:6px}
+.ccard .cdef{font-size:12px;color:var(--text-secondary);line-height:1.55}
+.dtable{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:.5rem;table-layout:fixed;background:var(--bg-primary);border-radius:var(--rl);overflow:hidden}
+.dtable th{text-align:left;padding:8px 12px;background:var(--bg-muted);border-bottom:0.5px solid var(--border);color:var(--text-secondary);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.dtable td{padding:8px 12px;border-bottom:0.5px solid var(--border-light);vertical-align:top;color:var(--text-secondary)}
+.dtable tr:last-child td{border-bottom:none}.dtable tr:hover td{background:var(--bg-secondary)}
+.dtable .wp{font-weight:600;font-style:italic;color:var(--text-primary);font-size:14px}.dtable .mean{font-weight:600;color:var(--text-primary)}
+.flow-chain{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:1rem}
+.flow-node{padding:7px 12px;border-radius:var(--r);font-size:12px;font-weight:600;border:0.5px solid;text-align:center}
+.cl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:8px;margin-bottom:.75rem}
+.cl-card{background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--rl);padding:.75rem 1rem}
+.cl-term{font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:2px}
+.cl-break{font-size:10px;color:var(--text-info);margin-bottom:3px;font-style:italic}.cl-def{font-size:11px;color:var(--text-secondary);line-height:1.5}
+.di-compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+.di-card{border-radius:var(--rl);overflow:hidden;border:0.5px solid var(--border)}
+.di-hdr{padding:8px 14px;font-size:13px;font-weight:600}.di-body{padding:10px 14px;font-size:12px;color:var(--text-secondary);line-height:1.7}
+.fc-controls{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;flex-wrap:wrap}
+.fc-sel{padding:6px 10px;border-radius:var(--r);border:1px solid var(--border);background:var(--bg-primary);color:var(--text-primary);font-size:14px}
+.flashcard{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--rl);padding:1.75rem;min-height:175px;display:flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer;position:relative}
+.flashcard:hover{border-color:var(--viol)}
+.fc-badge{position:absolute;top:11px;left:13px;font-size:11px;padding:2px 7px;border-radius:var(--r);font-weight:600}
+.fc-front{font-size:21px;font-weight:500;text-align:center;color:var(--text-primary)}
+.fc-back{display:none;text-align:center}.fc-back .meaning{font-size:16px;font-weight:500;color:var(--text-primary);margin-bottom:5px}.fc-back .example{font-size:12px;color:var(--text-secondary)}
+.fc-hint{font-size:12px;color:var(--text-muted);margin-top:.75rem}.fc-prog{font-size:13px;color:var(--text-secondary);margin-left:auto}
+.fc-actions{display:flex;gap:8px;margin-top:.9rem;flex-wrap:wrap;justify-content:center}
+.btn{padding:7px 16px;border-radius:var(--r);border:1px solid var(--border);background:var(--bg-primary);color:var(--text-primary);font-size:14px;cursor:pointer;transition:all .15s}.btn:hover{background:var(--bg-muted)}
+.btn-ok{border-color:var(--border-success);color:var(--text-success)}.btn-ok:hover{background:var(--bg-success)}
+.btn-no{border-color:var(--border-danger);color:var(--text-danger)}.btn-no:hover{background:var(--bg-danger)}
+.fc-score{font-size:13px;color:var(--text-secondary);margin-top:.75rem}
+.quiz-q{background:var(--bg-muted);border-radius:var(--rl);padding:1rem 1.15rem;margin-bottom:1rem;font-size:15px;font-weight:500;line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:7px;margin-bottom:1rem}
+.qopt{padding:9px 13px;border-radius:var(--r);border:1px solid var(--border);background:var(--bg-primary);color:var(--text-primary);font-size:14px;cursor:pointer;text-align:left;transition:all .15s}
+.qopt:hover:not(:disabled){background:var(--bg-muted)}
+.qopt.correct{background:var(--bg-success);border-color:var(--border-success);color:var(--text-success)}
+.qopt.wrong{background:var(--bg-danger);border-color:var(--border-danger);color:var(--text-danger)}
+.qfb{font-size:13px;margin-bottom:.9rem;min-height:16px}.qctr{font-size:12px;color:var(--text-muted)}
+.score-wrap{background:var(--bg-muted);border-radius:var(--rl);padding:2rem;text-align:center}
+.score-num{font-size:40px;font-weight:500}.score-lbl{font-size:14px;color:var(--text-secondary);margin-top:4px}
+</style>
+</head>
+<body>
+<div class="page-header"><div style="max-width:900px;margin:0 auto">
+<h1>Chapter 6 &#8212; Urinary System</h1>
+<p>Medical Terminology &nbsp;&middot;&nbsp; 5 Prefixes &nbsp;&middot;&nbsp; 13 Suffixes &nbsp;&middot;&nbsp; 13 Combining Forms &nbsp;&middot;&nbsp; 23 Key Terms &nbsp;&middot;&nbsp; KEY: -uria = condition of urine</p>
+</div></div>
+<div class="container"><div class="sg">
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('overview',this)">Overview</button>
+  <button class="tab-btn" onclick="showTab('anatomy',this)">Anatomy</button>
+  <button class="tab-btn" onclick="showTab('wordparts',this)">Word Parts</button>
+  <button class="tab-btn" onclick="showTab('combining',this)">Combining Forms</button>
+  <button class="tab-btn" onclick="showTab('clinical',this)">Clinical Terms</button>
+  <button class="tab-btn" onclick="showTab('procedures',this)">Procedures</button>
+  <button class="tab-btn" onclick="showTab('flashcards',this)">Flashcards</button>
+  <button class="tab-btn" onclick="showTab('quiz',this)">Quiz</button>
+</div>
+<div class="sec active" id="tab-overview">
+<div class="stat-row"><span class="stat-chip"><strong>5</strong> prefixes</span><span class="stat-chip"><strong>13</strong> suffixes</span><span class="stat-chip"><strong>13</strong> combining forms</span><span class="stat-chip"><strong>23</strong> key terms</span><span class="stat-chip"><strong>12</strong> A&amp;P terms</span></div>
+<div class="pg">Chapter 6 covers the <strong>urinary system</strong> &mdash; the body&rsquo;s blood filtration and fluid regulation system. Specialty: <em>Urology</em> (urologist). KEY: The suffix <strong>-uria</strong> (condition of urine) appears in nearly every clinical term in this chapter.</div>
+<div class="sec-hdr">3 System functions</div>
+<div class="card-grid">
+<div class="ccard"><span class="cwt" style="background:var(--bg-info);color:var(--text-info)">Filtration</span><div class="ctitle">Cleans the blood</div><div class="cdef">Kidneys filter ~180 L of blood per day, producing ~1.5 L of urine. Every drop passes through the kidneys ~60 times daily. Removes urea, creatinine, excess salts, and water.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-danger);color:var(--text-danger)">Regulation</span><div class="ctitle">Blood pressure</div><div class="cdef">Fluid volume control + RAAS (renin-angiotensin-aldosterone system). Kidneys release renin &rarr; activates a BP-raising cascade. Renal hypertension = BP elevation from kidney disease.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-success);color:var(--text-success)">Homeostasis</span><div class="ctitle">Maintaining balance</div><div class="cdef">Fluid/electrolyte balance (Na, K, Cl, Ca), acid-base balance (pH 7.35-7.45), erythropoietin (RBC production), vitamin D activation.</div></div>
+</div>
+<div class="sec-hdr">Urine flow path</div>
+<div class="flow-chain">
+<div class="flow-node" style="background:var(--bg-danger);border-color:var(--border-danger);color:var(--text-danger)">Kidneys (nephr/o, ren/o)</div>
+<span style="font-size:16px;color:var(--text-muted)">&rarr;</span>
+<div class="flow-node" style="background:var(--bg-warning);border-color:#854F0B;color:var(--text-warning)">Renal pelvis (pyel/o)</div>
+<span style="font-size:16px;color:var(--text-muted)">&rarr;</span>
+<div class="flow-node" style="background:var(--bg-info);border-color:var(--viol);color:var(--text-info)">Ureters (ureter/o)</div>
+<span style="font-size:16px;color:var(--text-muted)">&rarr;</span>
+<div class="flow-node" style="background:var(--bg-success);border-color:var(--border-success);color:var(--text-success)">Bladder (cyst/o, vesic/o)</div>
+<span style="font-size:16px;color:var(--text-muted)">&rarr;</span>
+<div class="flow-node" style="background:var(--bg-muted);border-color:var(--border);color:var(--text-secondary)">Urethra (urethr/o)</div>
+<span style="font-size:16px;color:var(--text-muted)">&rarr;</span>
+<div class="flow-node" style="background:var(--bg-muted);border-color:var(--border);color:var(--text-secondary)">Meatus (meat/o)</div>
+</div>
+<div class="sec-hdr">A&amp;P terms</div>
+<table class="dtable"><colgroup><col style="width:20%"><col style="width:80%"></colgroup>
+<thead><tr><th>Term</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td class="mean">Bladder</td><td>Muscular hollow organ (cyst/o, vesic/o) storing urine. Pelvic cavity, capacity ~400-600 mL. Trigone (trigon/o) = triangular base where ureters enter and urethra exits &mdash; most common site of UTI and bladder cancer.</td></tr>
+<tr><td class="mean">Hilum</td><td>Concave medial indentation (hil/o) where renal artery, vein, ureter, lymphatics, and nerves enter/exit the kidney. The &ldquo;gateway&rdquo; of the kidney.</td></tr>
+<tr><td class="mean">Kidneys</td><td>Two bean-shaped organs (nephr/o = Greek; ren/o = Latin) retroperitoneally at T12-L3. Right kidney slightly lower. ~1 million nephrons each. Only PARENCHYMAL tissue of the urinary system.</td></tr>
+<tr><td class="mean">Micturition</td><td>The act of urinating. Synonyms: urination, voiding. All three terms used interchangeably in clinical practice. ~5 times/day, ~1.5 L total.</td></tr>
+<tr><td class="mean">Nephron</td><td>Functional unit of the kidney &mdash; ~1 million per kidney. Glomerulus (glomerul/o) &rarr; Bowman&rsquo;s capsule &rarr; proximal convoluted tubule &rarr; loop of Henle &rarr; distal convoluted tubule &rarr; collecting duct &rarr; renal pelvis.</td></tr>
+<tr><td class="mean">Renal pelvis</td><td>Funnel-shaped collecting area (pyel/o) inside each kidney. Collects urine from calices &rarr; channels to ureter. Pyelonephritis = infection of renal pelvis AND kidney &mdash; most common kidney infection.</td></tr>
+<tr><td class="mean">Trigone</td><td>Triangular region (trigon/o) on inner bladder floor formed by two ureteral openings + urethral opening. Most common site of bladder infections and bladder cancer.</td></tr>
+<tr><td class="mean">Ureters</td><td>Two muscular tubes (ureter/o) from each kidney to the bladder via peristalsis. ~25-30 cm. &#9888; ureter/o (two tubes, kidney&rarr;bladder) &#8800; urethr/o (one tube, bladder&rarr;outside).</td></tr>
+<tr><td class="mean">Urethra</td><td>Single tube (urethr/o) from bladder to outside. Female ~4 cm (short &rarr; higher UTI risk). Male ~20 cm (through prostate + penis). External opening = urinary meatus (meat/o).</td></tr>
+<tr><td class="mean">Urinary meatus</td><td>External opening (meat/o) of the urethra. Pronunciation: mee-AY-tus. Meatotomy = incision to widen a stenotic opening.</td></tr>
+<tr><td class="mean">Urination</td><td>Process of releasing urine. Synonym for micturition and voiding. Controlled by detrusor muscle + internal (involuntary) and external (voluntary) urethral sphincters.</td></tr>
+<tr><td class="mean">Voiding</td><td>Another term for urination/micturition. VCUG = voiding cystourethrography = imaging of bladder and urethra DURING urination (voiding).</td></tr>
+</tbody></table>
+</div>
+<div class="sec" id="tab-anatomy">
+<div class="pg">Detailed anatomy of the kidney, nephron, urinary tract, and the critical ureter vs urethra distinction.</div>
+<div class="sec-hdr">Renal tissue classification</div>
+<div class="card-grid">
+<div class="ccard"><span class="cwt" style="background:var(--bg-danger);color:var(--text-danger)">Parenchymal tissue</span><div class="ctitle">Kidneys &mdash; the workers</div><div class="cdef">Only the KIDNEYS (nephr/o, ren/o) do the actual work of the urinary system. Cortex (cortic/o) + medulla (medull/o) = the parenchyma that filters blood and produces urine.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-info);color:var(--text-info)">Stromal tissue</span><div class="ctitle">Supporting structures</div><div class="cdef">Supportive tissue helping kidneys function. Stromal structures: ureters (ureter/o), bladder (cyst/o, vesic/o), trigone (trigon/o), urethra (urethr/o), urinary meatus (meat/o).</div></div>
+</div>
+<div class="sec-hdr">Kidney gross structure</div>
+<div class="card-grid">
+<div class="ccard"><span class="cwt" style="background:var(--bg-info);color:var(--text-info)">Cortex (cortic/o)</span><div class="ctitle">Outer layer</div><div class="cdef">Contains glomeruli and proximal/distal convoluted tubules. Site of most filtration. Reddish-brown, granular appearance.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-warning);color:var(--text-warning)">Medulla (medull/o)</span><div class="ctitle">Inner layer</div><div class="cdef">Contains loops of Henle and collecting ducts. Creates osmotic gradient to concentrate urine. Organized as renal pyramids.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-success);color:var(--text-success)">Renal pelvis (pyel/o)</span><div class="ctitle">Funnel-shaped collector</div><div class="cdef">Collects urine from calices &rarr; channels to ureter. Pyelonephritis = infection here. Hydronephrosis = dilation from obstruction.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-danger);color:var(--text-danger)">Hilum (hil/o)</span><div class="ctitle">Medial gateway</div><div class="cdef">Entry/exit point: renal artery, vein, ureter, lymphatics, nerves. Concave medial indentation of the kidney.</div></div>
+</div>
+<div class="sec-hdr">Nephron &mdash; functional unit (~1 million per kidney)</div>
+<table class="dtable"><colgroup><col style="width:25%"><col style="width:75%"></colgroup>
+<thead><tr><th>Component</th><th>Function &amp; clinical significance</th></tr></thead>
+<tbody>
+<tr><td class="mean">Glomerulus (glomerul/o)</td><td>Ball of capillaries where filtration begins. Pressure forces water and small solutes through. Proteins and RBCs normally blocked &mdash; if they appear in urine = glomerular damage (proteinuria, hematuria).</td></tr>
+<tr><td class="mean">Bowman&rsquo;s capsule</td><td>Cup surrounding glomerulus. Collects filtrate &rarr; channels into proximal tubule. Together with the glomerulus = renal corpuscle.</td></tr>
+<tr><td class="mean">Proximal convoluted tubule</td><td>Reabsorbs ~67% of filtered Na, water, glucose, amino acids. Glucose completely reabsorbed unless blood glucose exceeds renal threshold (~180 mg/dL) &rarr; glycosuria = sign of diabetes mellitus.</td></tr>
+<tr><td class="mean">Loop of Henle (nephronic loop)</td><td>Creates osmotic gradient in the medulla for urine concentration. Without this gradient, massive water loss in dilute urine would occur.</td></tr>
+<tr><td class="mean">Distal convoluted tubule</td><td>Fine-tunes pH and electrolytes. Regulated by aldosterone (retains Na, excretes K) and ADH (antidiuretic hormone &mdash; water reabsorption).</td></tr>
+<tr><td class="mean">Collecting duct &rarr; Renal pelvis</td><td>ADH controls final water reabsorption here. WITHOUT ADH (diabetes insipidus) &rarr; water not reabsorbed &rarr; massive dilute polyuria. Urine: collecting duct &rarr; calices &rarr; renal pelvis (pyel/o) &rarr; ureter.</td></tr>
+</tbody></table>
+<div class="sec-hdr">&#9888; Critical distinction: ureter vs urethra</div>
+<div class="card-grid">
+<div class="ccard"><div class="ctitle">Ureter (ureter/o) &mdash; TWO tubes</div><div class="cdef">Two muscular tubes. Carry urine FROM each kidney TO the bladder via peristalsis. ~25-30 cm long. One ureter per kidney. Pathology: ureteritis, ureterocele, vesicoureteral reflux.<br><strong>Memory:</strong> urETEr = &ldquo;E&rdquo; for Each kidney has one.</div></div>
+<div class="ccard"><div class="ctitle">Urethra (urethr/o) &mdash; ONE tube</div><div class="cdef">One tube from bladder to outside. Female ~4 cm (short &rarr; high UTI risk). Male ~20 cm (through prostate + penis). Pathology: urethritis, urethral stenosis, urethrolysis.<br><strong>Memory:</strong> urETHra = &ldquo;H&rdquo; for only one, leads Home/outside.</div></div>
+<div class="ccard"><div class="ctitle">Female vs male urethra</div><div class="cdef">Female urethra (~4 cm): short distance for bacteria to travel from meatus to bladder &rarr; much higher UTI rate in women than men. Male urethra (~20 cm): long natural barrier against ascending infection. BPH can obstruct male urethra &rarr; urinary retention.</div></div>
+</div>
+</div>
+<div class="sec" id="tab-wordparts">
+<div class="pg">5 prefixes and 13 suffixes &mdash; the most suffixes of any chapter. Critical suffix: <strong>-uria</strong> (condition of urine) appears in nearly every clinical term. Learn the four suffix pairs carefully.</div>
+<div class="sec-hdr">Prefixes (5)</div>
+<table class="dtable"><colgroup><col style="width:12%"><col style="width:22%"><col></colgroup>
+<thead><tr><th>Prefix</th><th>Meaning</th><th>Examples &amp; notes</th></tr></thead>
+<tbody>
+<tr><td class="wp">an-</td><td class="mean">without, absence of</td><td>Anuria (an- + ur/o + -ia = without urine output, &lt;50 mL/day = medical emergency). Also: anesthesia, anorexia, anhidrosis.</td></tr>
+<tr><td class="wp">di-</td><td class="mean">two, double, twice</td><td>Diuresis (excessive urine production). &#9888; di- (two) vs dia- (through). Diabetes comes from dia- (flows through), not di-.</td></tr>
+<tr><td class="wp">dys-</td><td class="mean">painful, difficult, abnormal</td><td>Dysuria (dys- + ur/o + -ia = painful or difficult urination &mdash; #1 UTI symptom). Also: dysphagia, dystrophy.</td></tr>
+<tr><td class="wp">poly-</td><td class="mean">many, much, excessive</td><td>Polyuria (excessive urine &gt;3 L/day), polydipsia (excessive thirst), polycystic (many cysts). Classic Chapter 6 prefix.</td></tr>
+<tr><td class="wp">re-</td><td class="mean">back, again</td><td>Vesicoureteral reflux (re- + -flux = backward flow &mdash; urine flowing BACK from bladder into ureters).</td></tr>
+</tbody></table>
+<div class="sec-hdr">Suffixes (13)</div>
+<table class="dtable"><colgroup><col style="width:14%"><col style="width:24%"><col></colgroup>
+<thead><tr><th>Suffix</th><th>Meaning</th><th>Examples &amp; notes</th></tr></thead>
+<tbody>
+<tr><td class="wp">-cele</td><td class="mean">hernia, protrusion</td><td>Cystocele (bladder herniates into vagina); ureterocele (ureter protrudes into bladder). A structural weakness through which something pushes.</td></tr>
+<tr><td class="wp">-dipsia</td><td class="mean">thirst</td><td>Polydipsia (excessive thirst). &#9888; -dipsia = THIRST; -uria = URINE. Both appear in diabetes mellitus and diabetes insipidus but describe different things.</td></tr>
+<tr><td class="wp">-flux</td><td class="mean">flow</td><td>Reflux (re- + -flux = backward flow); vesicoureteral reflux = urine flows BACK from bladder to ureters.</td></tr>
+<tr><td class="wp">-graphy</td><td class="mean">process of recording/imaging</td><td>Urography (urinary tract imaging); VCUG (voiding cystourethrography). Universal imaging suffix.</td></tr>
+<tr><td class="wp">-lithotomy</td><td class="mean">incision to remove a stone</td><td>Nephrolithotomy (incision into kidney to remove stone). lith/o = stone + -tomy = incision. &#9888; -lithotomy (incision) &#8800; -tripsy (crushing).</td></tr>
+<tr><td class="wp">-lysis</td><td class="mean">breakdown, loosening</td><td>Urethrolysis (freeing the urethra from adhesions); dialysis (kidney replacement therapy &mdash; dia- + -lysis = separation).</td></tr>
+<tr><td class="wp">-pexy</td><td class="mean">surgical fixation, fastening</td><td>Nephropexy (surgical fixation of drooping kidney). -pexy SOLVES -ptosis. &#9888; -pexy (fixation) &#8800; -plasty (repair/reconstruction).</td></tr>
+<tr><td class="wp">-ptosis</td><td class="mean">drooping, prolapse, sagging</td><td>Nephroptosis (drooping/floating kidney). -ptosis IS the problem; -pexy IS the fix. Same organ, opposite situations.</td></tr>
+<tr><td class="wp">-scope</td><td class="mean">instrument for visual exam</td><td>Cystoscope (instrument for bladder examination). &#9888; -scope = THE INSTRUMENT; -scopy = THE PROCEDURE.</td></tr>
+<tr><td class="wp">-scopy</td><td class="mean">process of visual examination</td><td>Cystoscopy (bladder examination procedure). The PROCEDURE performed using the cystoscope (-scope).</td></tr>
+<tr><td class="wp">-tomy</td><td class="mean">incision, cutting into</td><td>Meatotomy (incision of urinary meatus to widen it), nephrotomy (incision into kidney). &#9888; -tomy (incision) &#8800; -ectomy (removal).</td></tr>
+<tr><td class="wp">-tripsy</td><td class="mean">surgical crushing</td><td>Lithotripsy (lith/o + -tripsy = crushing a stone &mdash; ESWL). &#9888; -tripsy (crush, no incision) &#8800; -lithotomy (incision to remove).</td></tr>
+<tr><td class="wp">-uria</td><td class="mean">condition of urine, urination</td><td>THE key suffix of Chapter 6: anuria, dysuria, polyuria, glycosuria, hematuria, pyuria, azoturia, bacteriuria, nocturia, oliguria. &#9888; -uria = urine; -dipsia = thirst.</td></tr>
+</tbody></table>
+<div class="sec-hdr">&#9888; Critical suffix pairs</div>
+<div class="card-grid">
+<div class="ccard"><div class="ctitle">-scope vs -scopy</div><div class="cdef">CystoSCOPE = the INSTRUMENT (the physical fiberoptic camera). CystoSCOPY = the PROCEDURE (the examination). "The urologist performed a cystoscopy using a cystoscope." -scope is a noun (thing); -scopy is a process (event).</div></div>
+<div class="ccard"><div class="ctitle">-tripsy vs -lithotomy</div><div class="cdef">lithoTRIPSY = CRUSHING a stone (ESWL &mdash; sound waves from outside, no incision). nephroLITHOTOMY = INCISION to REMOVE a stone (percutaneous surgical access). One crushes; one cuts.</div></div>
+<div class="ccard"><div class="ctitle">-ptosis vs -pexy</div><div class="cdef">NephroPTOSIS = kidney DROOPS downward (-ptosis = drooping). NephroPEXY = kidney FIXED surgically (-pexy = fixation). -ptosis is the PROBLEM; -pexy is the SOLUTION.</div></div>
+<div class="ccard"><div class="ctitle">-uria vs -dipsia</div><div class="cdef">poly-URIA = excessive URINE production (&gt;3 L/day). poly-DIPSIA = excessive THIRST. Both appear together in DM and DI, but they describe different things (urine vs thirst).</div></div>
+</div>
+</div>
+<div class="sec" id="tab-combining">
+<div class="pg">13 combining forms from the PDF. Several organs have TWO combining forms: kidneys (nephr/o + ren/o), bladder (cyst/o + vesic/o), urine (urin/o + ur/o). Learn both for each organ.</div>
+<div class="sec-hdr">Core combining forms &mdash; PDF list (13)</div>
+<table class="dtable"><colgroup><col style="width:16%"><col style="width:20%"><col></colgroup>
+<thead><tr><th>Combining form</th><th>Meaning</th><th>Examples &amp; notes</th></tr></thead>
+<tbody>
+<tr><td class="wp">azot/o</td><td class="mean">urea, nitrogen compounds</td><td>Azoturia (excess nitrogen in urine); azotemia (nitrogenous waste in blood = uremia). High levels = sign of renal failure. From French azote = nitrogen.</td></tr>
+<tr><td class="wp">cyst/o</td><td class="mean">bladder, sac (Greek)</td><td>Cystitis, cystoscopy, cystocele, VCUG. &#9888; Context: urinary bladder in this chapter; also means cyst (sac) in other contexts.</td></tr>
+<tr><td class="wp">gluc/o, glycos/o</td><td class="mean">glucose, sugar</td><td>Glycosuria (glucose in urine = DM sign). Normally ABSENT from urine. Appears when blood glucose exceeds renal threshold (~180 mg/dL).</td></tr>
+<tr><td class="wp">lith/o</td><td class="mean">stone, calculus</td><td>Lithotripsy (crushing), nephrolithiasis (kidney stones), nephrolithotomy (incision to remove). Also Ch.5: cholelithiasis (gallstones).</td></tr>
+<tr><td class="wp">meat/o</td><td class="mean">meatus, opening, passage</td><td>Meatotomy (incision of urinary meatus to widen it). Urinary meatus = external opening of the urethra. Pronunciation: mee-AY-tus.</td></tr>
+<tr><td class="wp">nephr/o</td><td class="mean">kidney (Greek)</td><td>Nephritis, pyelonephritis, nephrectomy, nephropexy, nephroptosis. Primary kidney CF &mdash; used in pathological and procedural terms.</td></tr>
+<tr><td class="wp">pyel/o</td><td class="mean">renal pelvis</td><td>Pyelonephritis (renal pelvis + kidney infection). &#9888; pyel/o = RENAL PELVIS specifically, NOT the whole kidney.</td></tr>
+<tr><td class="wp">ren/o</td><td class="mean">kidney (Latin)</td><td>Renal (pertaining to kidney), renal pelvis, renal cell carcinoma. Latin origin &mdash; used in anatomical/adjectival terms.</td></tr>
+<tr><td class="wp">trigon/o</td><td class="mean">trigone (of bladder)</td><td>Trigonitis (trigone inflammation). Triangular bladder base = #1 site for UTI and bladder cancer.</td></tr>
+<tr><td class="wp">ureter/o</td><td class="mean">ureter</td><td>Ureteritis, ureterocele, vesicoureteral reflux. &#9888; ureter/o (tube kidney&rarr;bladder) &#8800; urethr/o (tube bladder&rarr;outside). One letter &ldquo;h&rdquo; difference!</td></tr>
+<tr><td class="wp">urethr/o</td><td class="mean">urethra</td><td>Urethritis, urethral stenosis, urethrolysis, VCUG. &#9888; urethr/o &#8800; ureter/o. Most commonly confused pair in this chapter.</td></tr>
+<tr><td class="wp">urin/o, ur/o</td><td class="mean">urine, urinary system</td><td>Urinalysis (urin/o), urology (ur/o), urologist. urin/o for compound terms; ur/o for compound words. Both = urine.</td></tr>
+<tr><td class="wp">vesic/o</td><td class="mean">bladder, vesicle (Latin)</td><td>Vesicoureteral reflux, vesicotomy, vesical. Latin = vesic/o; Greek = cyst/o. Both = bladder. Used in relational/directional terms.</td></tr>
+</tbody></table>
+<div class="sec-hdr">Additional combining forms &mdash; from lecture slides</div>
+<table class="dtable"><colgroup><col style="width:16%"><col style="width:20%"><col></colgroup>
+<thead><tr><th>Combining form</th><th>Meaning</th><th>Examples</th></tr></thead>
+<tbody>
+<tr><td class="wp">calic/o, calyc/o</td><td class="mean">calyx (cup-like structure)</td><td>Caliceal; hydronephrosis = dilation of renal pelvis AND calices from obstruction. Minor calices drain renal pyramids; major calices drain into renal pelvis.</td></tr>
+<tr><td class="wp">cortic/o</td><td class="mean">cortex, outer layer</td><td>Cortical (renal cortex = outer kidney layer containing glomeruli and convoluted tubules). Also: adrenal cortex, cerebral cortex.</td></tr>
+<tr><td class="wp">glomerul/o</td><td class="mean">glomerulus</td><td>Glomerulonephritis (glomerul/o + nephr/o + -itis); GFR = glomerular filtration rate = gold standard kidney function measure.</td></tr>
+<tr><td class="wp">noct/o</td><td class="mean">night</td><td>Nocturia (noct/o + -uria = excessive urination at night, &gt;1 time/night). Common in BPH, UTI, diabetes mellitus, heart failure.</td></tr>
+<tr><td class="wp">olig/o</td><td class="mean">few, scanty, little</td><td>Oliguria (olig/o + -uria = scanty urine, 50-400 mL/day). Sign of dehydration or early AKI. Opposite of polyuria.</td></tr>
+<tr><td class="wp">py/o</td><td class="mean">pus</td><td>Pyuria (py/o + -uria = pus in urine &mdash; sign of bacterial infection, &gt;5 WBCs/hpf on microscopic UA).</td></tr>
+</tbody></table>
+</div>
+<div class="sec" id="tab-clinical">
+<div class="pg">Clinical terms organized by category. Almost every urinary symptom ends in <strong>-uria</strong> (condition of urine) &mdash; the most productive suffix in this chapter.</div>
+<div class="sec-hdr">Urinary signs (objective, measurable)</div>
+<div class="cl-grid">
+<div class="cl-card"><div class="cl-term">Albuminuria</div><div class="cl-break">albumin/o + -uria</div><div class="cl-def">Protein (albumin) in urine. Sign of glomerular damage. Early marker of diabetic nephropathy. Normally absent from urine.</div></div>
+<div class="cl-card"><div class="cl-term">Glycosuria</div><div class="cl-break">glycos/o + -uria</div><div class="cl-def">Glucose in urine. Sign of diabetes mellitus. Normally absent. Appears when blood glucose &gt;renal threshold (~180 mg/dL).</div></div>
+<div class="cl-card"><div class="cl-term">Hematuria</div><div class="cl-break">hemat/o + -uria</div><div class="cl-def">Blood in urine. Painless gross hematuria in older adult = bladder cancer until proven otherwise. Also: UTI, stones, trauma.</div></div>
+<div class="cl-card"><div class="cl-term">Pyuria</div><div class="cl-break">py/o + -uria</div><div class="cl-def">Pus (&gt;5 WBCs/hpf) in urine. Sign of UTI. Causes cloudy/turbid urine appearance. Neither pus nor bacteria should normally appear in urine.</div></div>
+<div class="cl-card"><div class="cl-term">Azoturia</div><div class="cl-break">azot/o + -uria</div><div class="cl-def">Excess nitrogen waste (urea) in urine. Indicates impaired kidney function. Azotemia = nitrogenous waste in blood = uremia.</div></div>
+<div class="cl-card"><div class="cl-term">Bacteriuria</div><div class="cl-break">bacteri/o + -uria</div><div class="cl-def">Bacteria in urine (&gt;100,000 CFU/mL on culture = significant). Indicates UTI. Urine is normally sterile.</div></div>
+</div>
+<div class="sec-hdr">Urinary symptoms (subjective)</div>
+<div class="cl-grid">
+<div class="cl-card"><div class="cl-term">Anuria</div><div class="cl-break">an- + ur/o + -ia</div><div class="cl-def">No urine output (&lt;50 mL/day). MEDICAL EMERGENCY. Causes: severe AKI, bilateral obstruction, severe dehydration. Immediate intervention required.</div></div>
+<div class="cl-card"><div class="cl-term">Dysuria</div><div class="cl-break">dys- + ur/o + -ia</div><div class="cl-def">Painful or difficult urination &mdash; burning/stinging. #1 symptom of UTI. Also in urethral stenosis, STIs, kidney stones.</div></div>
+<div class="cl-card"><div class="cl-term">Oliguria</div><div class="cl-break">olig/o + -uria</div><div class="cl-def">Scanty urine output (50-400 mL/day). Sign of dehydration, early AKI, or obstruction. Less severe than anuria.</div></div>
+<div class="cl-card"><div class="cl-term">Polyuria</div><div class="cl-break">poly- + ur/o + -ia</div><div class="cl-def">Excessive urine production (&gt;3 L/day). Causes: DM, DI (lack of ADH), diuretics, lithium toxicity, hypercalcemia.</div></div>
+<div class="cl-card"><div class="cl-term">Polydipsia</div><div class="cl-break">poly- + -dipsia</div><div class="cl-def">Excessive thirst. -dipsia = THIRST (not urine). Accompanies polyuria in DM and DI. Body loses fluid rapidly &rarr; thirst response.</div></div>
+<div class="cl-card"><div class="cl-term">Nocturia</div><div class="cl-break">noct/o + -uria</div><div class="cl-def">Excessive nighttime urination (&gt;1 time/night). Causes: BPH, UTI, diabetes mellitus, congestive heart failure.</div></div>
+<div class="cl-card"><div class="cl-term">Incontinence</div><div class="cl-break">involuntary urine loss</div><div class="cl-def">Involuntary urine loss. Types: stress (coughing/sneezing), urge (sudden), overflow (retention &rarr; overflow), functional (mobility).</div></div>
+<div class="cl-card"><div class="cl-term">Urinary retention</div><div class="cl-break">inability to void</div><div class="cl-def">Inability to empty the bladder. Acute = painful emergency (catheterization). Causes: BPH (#1 in men), urethral stricture, anticholinergic medications.</div></div>
+<div class="cl-card"><div class="cl-term">Urgency</div><div class="cl-break">sudden urge to void</div><div class="cl-def">Sudden, compelling urge to urinate. Common in UTI, overactive bladder, urge incontinence.</div></div>
+</div>
+<div class="sec-hdr">Diabetes insipidus (DI) vs diabetes mellitus (DM)</div>
+<div class="di-compare">
+<div class="di-card">
+<div class="di-hdr" style="background:var(--bg-info);color:var(--text-info)">Diabetes Insipidus (DI)</div>
+<div class="di-body"><strong>Cause:</strong> Lack of ADH or renal resistance to ADH<br><strong>Mechanism:</strong> No ADH &rarr; collecting duct cannot reabsorb water &rarr; massive water loss<br><strong>Symptoms:</strong> Polyuria (3-20 L/day), polydipsia<br><strong>Urine:</strong> Very dilute, <strong>NO glucose</strong><br><strong>Blood glucose:</strong> Normal<br><strong>Rx:</strong> Desmopressin (synthetic ADH)</div>
+</div>
+<div class="di-card">
+<div class="di-hdr" style="background:var(--bg-warning);color:var(--text-warning)">Diabetes Mellitus (DM)</div>
+<div class="di-body"><strong>Cause:</strong> Insufficient insulin (Type 1) or insulin resistance (Type 2)<br><strong>Mechanism:</strong> Hyperglycemia &rarr; exceeds renal threshold &rarr; glycosuria &rarr; osmotic diuresis<br><strong>Symptoms:</strong> Polyuria, polydipsia, <strong>glycosuria</strong>, ketoacidosis (Type 1)<br><strong>Urine:</strong> <strong>Glucose positive</strong><br><strong>Blood glucose:</strong> Elevated (hyperglycemia)<br><strong>Rx:</strong> Insulin (Type 1); lifestyle + oral agents (Type 2)</div>
+</div>
+</div>
+<div class="sec-hdr">Kidney &amp; urinary tract disorders</div>
+<div class="cl-grid">
+<div class="cl-card"><div class="cl-term">Pyelonephritis</div><div class="cl-break">pyel/o + nephr/o + -itis</div><div class="cl-def">Bacterial infection of renal pelvis + kidney. Most common serious kidney infection. Ascending from bladder. Fever, flank pain, CVA tenderness, dysuria. Rx: fluoroquinolones.</div></div>
+<div class="cl-card"><div class="cl-term">Glomerulonephritis</div><div class="cl-break">glomerul/o + nephr/o + -itis</div><div class="cl-def">Glomerular inflammation &rarr; hematuria, proteinuria, hypertension, edema. Post-streptococcal or autoimmune. Can progress to renal failure.</div></div>
+<div class="cl-card"><div class="cl-term">Nephroptosis</div><div class="cl-break">nephr/o + -ptosis</div><div class="cl-def">Drooping/floating kidney &mdash; drops &gt;2 vertebral levels when standing. Flank pain upright, relieved when lying down. Treated with nephropexy.</div></div>
+<div class="cl-card"><div class="cl-term">Hydronephrosis</div><div class="cl-break">hydr/o + nephr/o + -osis</div><div class="cl-def">Dilation of renal pelvis + calices from urinary obstruction (stone, tumor, BPH). Increased pressure &rarr; kidney damage. Bilateral &rarr; renal failure.</div></div>
+<div class="cl-card"><div class="cl-term">Nephrolithiasis</div><div class="cl-break">nephr/o + lith/o + -iasis</div><div class="cl-def">Kidney stones (80% calcium oxalate). Renal colic = severe flank pain radiating to groin. CT = gold standard. ESWL (&le;2 cm) or PCNL (&gt;2 cm).</div></div>
+<div class="cl-card"><div class="cl-term">CKD / Renal failure</div><div class="cl-break">chronic kidney disease</div><div class="cl-def">Progressive irreversible kidney function loss. Staged by GFR (1-5). Stage 5 = ESRD (&lt;15 mL/min) &rarr; dialysis or transplant. Causes: diabetes (#1), hypertension (#2).</div></div>
+<div class="cl-card"><div class="cl-term">Cystitis</div><div class="cl-break">cyst/o + -itis</div><div class="cl-def">Bladder inflammation &mdash; usually E. coli. Classic UTI: dysuria, urgency, frequency. Most common in women. Rx: TMP-SMX or nitrofurantoin.</div></div>
+<div class="cl-card"><div class="cl-term">Cystocele</div><div class="cl-break">cyst/o + -cele</div><div class="cl-def">Herniation of bladder into vagina through weakened pelvic floor. Symptoms: pelvic pressure, incontinence. Tx: Kegel exercises, pessary, surgery.</div></div>
+<div class="cl-card"><div class="cl-term">Vesicoureteral reflux</div><div class="cl-break">vesic/o + ureter/o + re- + -flux</div><div class="cl-def">Abnormal backflow of urine from bladder BACK into ureters. Risk of ascending pyelonephritis. Common in children. Graded I-V.</div></div>
+<div class="cl-card"><div class="cl-term">Urethral stenosis</div><div class="cl-break">urethr/o + stenosis</div><div class="cl-def">Narrowing/stricture of urethra from scarring (STIs, trauma, catheterization). Weak urine stream, straining, retention.</div></div>
+</div>
+</div>
+<div class="sec" id="tab-procedures">
+<div class="pg">Diagnostic procedures, imaging, therapeutic interventions, dialysis, and pharmacology for the urinary system.</div>
+<div class="sec-hdr">Urinalysis (UA) &mdash; three components</div>
+<div class="card-grid">
+<div class="ccard"><span class="cwt" style="background:var(--bg-info);color:var(--text-info)">Physical examination</span><div class="ctitle">Appearance, color, SG</div><div class="cdef">Color: pale yellow (normal) &rarr; amber (concentrated) &rarr; red/brown (hematuria) &rarr; cloudy (pyuria). Specific gravity (SG): 1.005-1.030. DI = very low SG. Normal quantity: ~1.5-2 L/day.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-warning);color:var(--text-warning)">Chemical (dipstick)</span><div class="ctitle">Glucose, protein, blood, pH</div><div class="cdef">Glucose (DM), protein/albumin (glomerular damage), blood (hematuria), pH, nitrites (bacteria), leukocyte esterase (WBCs/pyuria), ketones (DKA), bilirubin (liver disease).</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-danger);color:var(--text-danger)">Microscopic examination</span><div class="ctitle">WBCs, RBCs, bacteria, casts</div><div class="cdef">&gt;5 WBCs/hpf = pyuria = infection. &gt;3 RBCs/hpf = hematuria. Bacteria (normally absent). RBC casts = glomerulonephritis. Granular casts = AKI.</div></div>
+</div>
+<div class="sec-hdr">Laboratory tests</div>
+<table class="dtable"><colgroup><col style="width:22%"><col style="width:78%"></colgroup>
+<thead><tr><th>Test</th><th>Definition &amp; clinical notes</th></tr></thead>
+<tbody>
+<tr><td class="mean">BUN (blood urea nitrogen)</td><td>Measures nitrogen-containing waste (urea) in blood. Normal: 7-20 mg/dL. Elevated BUN = azotemia. Causes: reduced renal function (CKD, AKI), dehydration, or high protein intake.</td></tr>
+<tr><td class="mean">Creatinine clearance</td><td>Measures how well kidneys filter creatinine. Creatinine is produced at a constant rate from muscle metabolism &mdash; ideal kidney function marker. Low clearance = poor kidney function.</td></tr>
+<tr><td class="mean">GFR (glomerular filtration rate)</td><td>Gold standard kidney function measure. Normal: &gt;90 mL/min. Used to stage CKD: Stage 1 (&gt;90) through Stage 5 ESRD (&lt;15 &rarr; dialysis or transplant required).</td></tr>
+</tbody></table>
+<div class="sec-hdr">Diagnostic &amp; therapeutic procedures</div>
+<table class="dtable"><colgroup><col style="width:22%"><col style="width:78%"></colgroup>
+<thead><tr><th>Procedure</th><th>Definition &amp; notes</th></tr></thead>
+<tbody>
+<tr><td class="mean">Cystoscopy</td><td>cyst/o + -scopy = visual examination of bladder interior using a cystoscope (fiberoptic camera via urethra). Diagnoses: hematuria source, tumors, stones. Also therapeutic: biopsy, stone removal, stent placement. Cystoscope = the instrument; cystoscopy = the procedure.</td></tr>
+<tr><td class="mean">VCUG</td><td>Voiding cystourethrography = X-ray of bladder + urethra DURING urination with contrast dye. Primary use: diagnosing vesicoureteral reflux (VUR) in children and urethral anatomy.</td></tr>
+<tr><td class="mean">KUB (X-ray)</td><td>Kidneys, Ureters, Bladder plain abdominal X-ray. Screens for radio-opaque kidney stones (calcium), bladder distension. Does NOT show uric acid stones (need CT for those).</td></tr>
+<tr><td class="mean">CT scan</td><td>Non-contrast CT = gold standard for kidney stones (detects ALL types). CT urogram (with contrast) = gold standard for urinary tract evaluation. Excellent anatomical detail.</td></tr>
+<tr><td class="mean">Lithotripsy (ESWL)</td><td>lith/o + -tripsy = CRUSHING a stone. Extracorporeal shock wave lithotripsy = sound waves focused from outside body &rarr; stone shatters &rarr; fragments pass in urine. Non-invasive. For stones &le;2 cm. &#9888; -tripsy (crush) &#8800; -lithotomy (incision to remove).</td></tr>
+<tr><td class="mean">Nephrolithotomy (PCNL)</td><td>nephr/o + lith/o + -tomy = INCISION into kidney to remove stone. Percutaneous (small flank incision &rarr; nephroscope). For stones &gt;2 cm or failed ESWL. More invasive than lithotripsy.</td></tr>
+<tr><td class="mean">Nephropexy</td><td>nephr/o + -pexy = surgical FIXATION of drooping kidney (nephroptosis). Kidney sutured to surrounding tissue to prevent downward migration when standing. -pexy fixes the -ptosis.</td></tr>
+<tr><td class="mean">Meatotomy</td><td>meat/o + -tomy = surgical INCISION of the urinary meatus to widen it. For meatal stenosis (narrowed opening). Common in boys after circumcision complications.</td></tr>
+<tr><td class="mean">Catheter</td><td>Flexible tube through urethra into bladder to drain urine. Types: Foley (indwelling balloon), intermittent straight (temporary, lower infection risk), suprapubic (through abdominal wall). For: retention, ICU monitoring, post-surgical.</td></tr>
+<tr><td class="mean">Nephrectomy</td><td>nephr/o + -ectomy = REMOVAL of a kidney. Radical (kidney + adrenal + lymph nodes for cancer), partial (preserve kidney tissue), donor (for transplant).</td></tr>
+</tbody></table>
+<div class="sec-hdr">Dialysis &mdash; kidney replacement therapy</div>
+<div class="card-grid">
+<div class="ccard"><span class="cwt" style="background:var(--bg-info);color:var(--text-info)">Hemodialysis</span><div class="ctitle">Blood filtered through machine</div><div class="cdef">Blood removed &rarr; run through dialyzer (artificial kidney) &rarr; waste/fluid removed &rarr; blood returned. 3-4 hrs/session, 3 times/week. Requires AV fistula or graft for vascular access.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-success);color:var(--text-success)">Peritoneal dialysis</span><div class="ctitle">Peritoneum as filter</div><div class="cdef">Dialysate infused into peritoneal cavity &rarr; peritoneum acts as semipermeable membrane &rarr; waste diffuses out &rarr; fluid drained. CAPD (4x/day by patient) or CCPD (at night by machine).</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-warning);color:var(--text-warning)">Renal transplant</span><div class="ctitle">Best ESRD treatment</div><div class="cdef">Donor kidney (living or cadaveric) implanted in the pelvis &rarr; connected to iliac vessels + bladder. Best long-term outcome for ESRD &mdash; superior to dialysis for quality of life and survival.</div></div>
+</div>
+<div class="sec-hdr">Pharmacology</div>
+<div class="card-grid">
+<div class="ccard"><span class="cwt" style="background:var(--bg-info);color:var(--text-info)">Diuretics</span><div class="cdef">Increase urine production &rarr; reduce fluid volume and BP. Loop (furosemide/Lasix &mdash; most potent), thiazide (HCTZ), potassium-sparing (spironolactone). For hypertension, edema, CHF.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-warning);color:var(--text-warning)">Antidiuretics</span><div class="cdef">Decrease urine production. Desmopressin (DDAVP = synthetic ADH) for diabetes insipidus and nocturnal enuresis. Reduces urine volume dramatically.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-danger);color:var(--text-danger)">Antiinfectives</span><div class="cdef">Antibiotics for urinary infections. First-line UTI: TMP-SMX, nitrofurantoin. Pyelonephritis: fluoroquinolones (ciprofloxacin). Always obtain urine culture when possible.</div></div>
+<div class="ccard"><span class="cwt" style="background:var(--bg-muted);color:var(--text-secondary)">Anticholinergics</span><div class="cdef">Reduce bladder spasms and overactive bladder. Oxybutynin, tolterodine. Block muscarinic receptors &rarr; relax detrusor muscle &rarr; reduce urgency and urinary frequency.</div></div>
+</div>
+</div>
+<div class="sec" id="tab-flashcards">
+<div class="fc-controls">
+  <select class="fc-sel" id="fc-cat" onchange="initFC()">
+    <option value="all">All categories</option>
+    <option value="prefix">Prefixes</option>
+    <option value="suffix">Suffixes</option>
+    <option value="combining">Combining forms</option>
+    <option value="clinical">Clinical terms</option>
+    <option value="ap">A&amp;P terms</option>
+  </select>
+  <button class="btn" onclick="shuffleFC()">Shuffle</button>
+  <span class="fc-prog" id="fc-prog">&mdash;</span>
+</div>
+<div class="flashcard" id="flashcard" onclick="flipFC()">
+  <span class="fc-badge" id="fc-badge"></span>
+  <div class="fc-front" id="fc-front"></div>
+  <div class="fc-back" id="fc-back"><div class="meaning" id="fc-meaning"></div><div class="example" id="fc-example"></div></div>
+  <div class="fc-hint" id="fc-hint">click to reveal</div>
+</div>
+<div class="fc-actions">
+  <button class="btn btn-no" onclick="markFC(false)">&#10005; Still learning</button>
+  <button class="btn btn-ok" onclick="markFC(true)">&#10003; Got it</button>
+  <button class="btn" onclick="prevFC()">&larr; Prev</button>
+  <button class="btn" onclick="nextFC()">Next &rarr;</button>
+</div>
+<div class="fc-score" id="fc-score"></div>
+</div>
+<div class="sec" id="tab-quiz">
+<div id="quiz-wrap">
+  <div class="quiz-q" id="quiz-q"></div>
+  <div class="quiz-opts" id="quiz-opts"></div>
+  <div class="qfb" id="quiz-fb"></div>
+  <button class="btn" id="quiz-next" onclick="nextQ()" style="display:none">Next &rarr;</button>
+  <div class="qctr" id="quiz-ctr"></div>
+</div>
+<div id="quiz-done" style="display:none">
+  <div class="score-wrap">
+    <div class="score-num" id="quiz-final"></div>
+    <div class="score-lbl">correct answers</div>
+    <div style="display:flex;gap:8px;justify-content:center;margin-top:1rem">
+      <button class="btn" onclick="startQuiz()">Try again</button>
+    </div>
+  </div>
+</div>
+</div>
+</div></div>
+<script>
+var TM={prefix:{label:"Prefix",bg:"#fff8e1",c:"#854F0B"},suffix:{label:"Suffix",bg:"#e8e6fa",c:"#3730a3"},combining:{label:"Combining",bg:"#e6f4ea",c:"#1b5e20"},clinical:{label:"Clinical",bg:"#fce8e8",c:"#9c2020"},ap:{label:"A&P",bg:"#f5f4f8",c:"#555555"}};
+var DATA=[
+  {term:"an-",type:"prefix",meaning:"without, absence of",extra:"anuria (no urine output, less than 50 mL/day = medical emergency)"},
+  {term:"di-",type:"prefix",meaning:"two, double, twice",extra:"diuresis (excessive urine production). di- differs from dia- (through)."},
+  {term:"dys-",type:"prefix",meaning:"painful, difficult, abnormal",extra:"dysuria (painful or difficult urination - number 1 UTI symptom)"},
+  {term:"poly-",type:"prefix",meaning:"many, much, excessive",extra:"polyuria (excessive urine greater than 3 L/day), polydipsia (excessive thirst)"},
+  {term:"re-",type:"prefix",meaning:"back, again",extra:"vesicoureteral reflux - urine flows BACK from bladder into ureters"},
+  {term:"-cele",type:"suffix",meaning:"hernia, protrusion",extra:"cystocele (bladder herniates into vagina), ureterocele (ureter protrudes into bladder)"},
+  {term:"-dipsia",type:"suffix",meaning:"thirst",extra:"polydipsia (excessive thirst). -dipsia = THIRST; -uria = URINE. Both appear in DM and DI."},
+  {term:"-flux",type:"suffix",meaning:"flow",extra:"reflux (re- + -flux = backward flow); vesicoureteral reflux"},
+  {term:"-graphy",type:"suffix",meaning:"process of recording/imaging",extra:"urography, VCUG (voiding cystourethrography). Universal imaging suffix."},
+  {term:"-lithotomy",type:"suffix",meaning:"incision to remove a stone",extra:"nephrolithotomy (incision into kidney to remove stone). NOT -tripsy (crushing)."},
+  {term:"-lysis",type:"suffix",meaning:"breakdown, loosening",extra:"urethrolysis (freeing the urethra); dialysis (kidney replacement therapy)"},
+  {term:"-pexy",type:"suffix",meaning:"surgical fixation, fastening",extra:"nephropexy (fix drooping kidney). -pexy FIXES -ptosis. NOT -plasty (repair)."},
+  {term:"-ptosis",type:"suffix",meaning:"drooping, prolapse, sagging",extra:"nephroptosis (drooping/floating kidney). -ptosis IS the problem; -pexy IS the fix."},
+  {term:"-scope",type:"suffix",meaning:"instrument for visual examination",extra:"cystoscope (instrument for bladder exam). -scope = INSTRUMENT; -scopy = PROCEDURE."},
+  {term:"-scopy",type:"suffix",meaning:"process of visual examination",extra:"cystoscopy (bladder exam procedure). The PROCEDURE done using the -scope instrument."},
+  {term:"-tomy",type:"suffix",meaning:"incision, cutting into",extra:"meatotomy (incision of meatus to widen it). NOT -ectomy (removal)."},
+  {term:"-tripsy",type:"suffix",meaning:"surgical crushing",extra:"lithotripsy (lith/o + -tripsy = crushing a stone - ESWL). NOT -lithotomy (incision)."},
+  {term:"-uria",type:"suffix",meaning:"condition of the urine, urination",extra:"THE key suffix: anuria, dysuria, polyuria, glycosuria, hematuria, pyuria. -uria = urine; -dipsia = thirst."},
+  {term:"azot/o",type:"combining",meaning:"urea, nitrogen compounds",extra:"azoturia (excess nitrogen in urine), azotemia (uremia). High levels = sign of renal failure."},
+  {term:"cyst/o",type:"combining",meaning:"bladder, sac (Greek)",extra:"cystitis, cystoscopy, cystocele, VCUG. Also means cyst in other contexts."},
+  {term:"gluc/o, glycos/o",type:"combining",meaning:"glucose, sugar",extra:"glycosuria (glucose in urine = DM sign). Normally absent from urine."},
+  {term:"lith/o",type:"combining",meaning:"stone, calculus",extra:"lithotripsy (crushing), nephrolithiasis (kidney stones), nephrolithotomy (incision)."},
+  {term:"meat/o",type:"combining",meaning:"meatus, opening, passage",extra:"meatotomy (incision of urinary meatus to widen it). Pronounced mee-AY-tus."},
+  {term:"nephr/o",type:"combining",meaning:"kidney (Greek)",extra:"nephritis, pyelonephritis, nephrectomy, nephropexy, nephroptosis. Primary kidney CF."},
+  {term:"pyel/o",type:"combining",meaning:"renal pelvis",extra:"pyelonephritis (renal pelvis + kidney infection). NOT the whole kidney - renal pelvis only."},
+  {term:"ren/o",type:"combining",meaning:"kidney (Latin)",extra:"renal (pertaining to kidney), renal pelvis, renal cell carcinoma. Latin - anatomical terms."},
+  {term:"trigon/o",type:"combining",meaning:"trigone (of bladder)",extra:"trigonitis. Triangular bladder base = number 1 site for UTI and bladder cancer."},
+  {term:"ureter/o",type:"combining",meaning:"ureter (tube kidney to bladder)",extra:"ureteritis, ureterocele, vesicoureteral reflux. ureter/o is NOT urethr/o - one letter h difference!"},
+  {term:"urethr/o",type:"combining",meaning:"urethra (tube bladder to outside)",extra:"urethritis, urethral stenosis, urethrolysis, VCUG. urethr/o is NOT ureter/o."},
+  {term:"urin/o, ur/o",type:"combining",meaning:"urine, urinary system",extra:"urinalysis (urin/o), urology (ur/o), urologist. Both mean urine."},
+  {term:"vesic/o",type:"combining",meaning:"bladder, vesicle (Latin)",extra:"vesicoureteral reflux, vesicotomy. Latin = vesic/o; Greek = cyst/o. Both mean bladder."},
+  {term:"Anuria",type:"clinical",meaning:"an- + ur/o + -ia = no urine output (less than 50 mL/day). Medical emergency.",extra:"Causes: severe AKI, bilateral obstruction, severe dehydration. Immediate intervention required."},
+  {term:"Dysuria",type:"clinical",meaning:"dys- + ur/o + -ia = painful or difficult urination",extra:"Number 1 symptom of UTI. Also in urethral stenosis, STIs, kidney stones."},
+  {term:"Polyuria",type:"clinical",meaning:"poly- + ur/o + -ia = excessive urine production (greater than 3 L/day)",extra:"Causes: DM (osmotic diuresis), DI (lack of ADH), diuretics. Usually accompanies polydipsia."},
+  {term:"Polydipsia",type:"clinical",meaning:"poly- + -dipsia = excessive thirst (-dipsia means thirst, not urine)",extra:"Accompanies polyuria in DM and DI. Body loses fluid rapidly, triggering thirst response."},
+  {term:"Glycosuria",type:"clinical",meaning:"glycos/o + -uria = glucose in the urine. Sign of diabetes mellitus.",extra:"Normally absent. Blood glucose exceeds renal threshold (~180 mg/dL) and glucose spills into urine."},
+  {term:"Pyelonephritis",type:"clinical",meaning:"pyel/o + nephr/o + -itis = bacterial infection of renal pelvis and kidney",extra:"Most common serious kidney infection. Fever, flank pain, CVA tenderness, dysuria. Rx: antibiotics."},
+  {term:"Nephroptosis",type:"clinical",meaning:"nephr/o + -ptosis = drooping or sagging kidney (floating kidney)",extra:"Drops more than 2 vertebral levels when standing. Treated with nephropexy (surgical fixation)."},
+  {term:"Nephrolithiasis",type:"clinical",meaning:"nephr/o + lith/o + -iasis = kidney stones",extra:"80% calcium oxalate. Renal colic = severe flank pain radiating to groin. CT = gold standard."},
+  {term:"Lithotripsy",type:"clinical",meaning:"lith/o + -tripsy = surgical CRUSHING of a stone (ESWL, no incision)",extra:"Extracorporeal shock wave lithotripsy. Non-invasive. For stones 2 cm or smaller."},
+  {term:"Nephrolithotomy",type:"clinical",meaning:"nephr/o + lith/o + -tomy = INCISION into kidney to remove a stone",extra:"Percutaneous (PCNL). For stones larger than 2 cm or failed ESWL. More invasive than lithotripsy."},
+  {term:"Nephropexy",type:"clinical",meaning:"nephr/o + -pexy = surgical FIXATION of a drooping kidney",extra:"-pexy FIXES -ptosis. Kidney sutured to tissue to prevent downward migration."},
+  {term:"Cystocele",type:"clinical",meaning:"cyst/o + -cele = herniation of the bladder into the vagina",extra:"Weakened pelvic floor. Symptoms: pelvic pressure, incontinence. Treatment: Kegel exercises, pessary, surgery."},
+  {term:"Vesicoureteral reflux",type:"clinical",meaning:"vesic/o + ureter/o + re- + -flux = backward flow of urine from bladder to ureters",extra:"Abnormal backflow. Risk of ascending pyelonephritis. Common in children. Graded I-V."},
+  {term:"Urethral stenosis",type:"clinical",meaning:"urethr/o + stenosis = narrowing or stricture of the urethra",extra:"From scarring (STIs, trauma, catheterization). Weak urine stream, straining, retention."},
+  {term:"Meatotomy",type:"clinical",meaning:"meat/o + -tomy = surgical incision of the urinary meatus to widen it",extra:"For meatal stenosis. Common in boys after circumcision complications."},
+  {term:"Urinalysis (UA)",type:"clinical",meaning:"urin/o + analysis = examination of urine (physical, chemical, microscopic)",extra:"Physical (color, SG) plus chemical (dipstick: glucose, protein, blood, pH) plus microscopic (WBCs, RBCs, casts)."},
+  {term:"Diabetes insipidus (DI)",type:"clinical",meaning:"Lack of ADH causes massive dilute polyuria. Normal blood glucose. No glycosuria.",extra:"Without ADH the collecting duct cannot reabsorb water. Treatment: desmopressin (synthetic ADH)."},
+  {term:"Diabetes mellitus (DM)",type:"clinical",meaning:"Hyperglycemia causes glycosuria, then osmotic diuresis, then polyuria and polydipsia",extra:"Blood glucose elevated. Urine: glucose positive. Unlike DI: blood glucose is HIGH."},
+  {term:"Bladder",type:"ap",meaning:"Muscular hollow organ (cyst/o, vesic/o) storing urine. Trigone = triangular base.",extra:"Trigone formed by two ureteral openings plus urethral opening. Number 1 site of UTI and cancer."},
+  {term:"Nephron",type:"ap",meaning:"Functional unit of kidney - approximately 1 million per kidney",extra:"Glomerulus to Bowman capsule to PCT to loop of Henle to DCT to collecting duct to renal pelvis."},
+  {term:"Renal pelvis",type:"ap",meaning:"Funnel-shaped collecting area (pyel/o) inside kidney that channels urine to the ureter",extra:"Pyelonephritis = infection of renal pelvis plus kidney. Hydronephrosis = dilation from obstruction."},
+  {term:"Ureters",type:"ap",meaning:"Two muscular tubes (ureter/o) from each kidney to bladder via peristalsis (~25-30 cm)",extra:"ureter/o (two tubes, kidney to bladder) is NOT urethr/o (one tube, bladder to outside)."},
+  {term:"Urethra",type:"ap",meaning:"Single tube (urethr/o) from bladder to outside. Female ~4 cm; male ~20 cm.",extra:"Short female urethra causes higher UTI risk. Male urethra passes through prostate and penis."},
+  {term:"Micturition",type:"ap",meaning:"Act of urinating. Synonyms: urination and voiding. All three terms are interchangeable.",extra:"Approximately 5 times per day, approximately 1.5 L total. Controlled by detrusor muscle and urethral sphincters."}
+];
+var fcCards=[],fcIdx=0,fcFlipped=false,fcGot=new Set(),fcNope=new Set();
+var quizQs=[],quizIdx=0,quizScore=0,quizAnswered=false;
+function showTab(id,btn){
+  var secs=document.querySelectorAll('.sec');
+  for(var i=0;i<secs.length;i++)secs[i].classList.remove('active');
+  var btns=document.querySelectorAll('.tab-btn');
+  for(var i=0;i<btns.length;i++)btns[i].classList.remove('active');
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='flashcards'&&fcCards.length===0)initFC();
+  if(id==='quiz')startQuiz();
+}
+function initFC(){
+  var cat=document.getElementById('fc-cat').value;
+  fcCards=cat==='all'?DATA.slice():DATA.filter(function(d){return d.type===cat;});
+  fcCards.sort(function(){return Math.random()-0.5;});
+  fcIdx=0;fcFlipped=false;fcGot=new Set();fcNope=new Set();showCard();
+}
+function showCard(){
+  if(!fcCards.length)return;
+  var c=fcCards[fcIdx],m=TM[c.type];
+  var b=document.getElementById('fc-badge');
+  b.textContent=m.label;b.style.background=m.bg;b.style.color=m.c;
+  document.getElementById('fc-front').textContent=c.term;
+  document.getElementById('fc-meaning').textContent=c.meaning;
+  document.getElementById('fc-example').textContent=c.extra?'Note: '+c.extra:'';
+  document.getElementById('fc-front').style.display='block';
+  document.getElementById('fc-back').style.display='none';
+  document.getElementById('fc-hint').style.display='block';
+  fcFlipped=false;
+  document.getElementById('fc-prog').textContent='Card '+(fcIdx+1)+' of '+fcCards.length;
+  updScore();
+}
+function flipFC(){if(fcFlipped)return;fcFlipped=true;document.getElementById('fc-front').style.display='none';document.getElementById('fc-back').style.display='block';document.getElementById('fc-hint').style.display='none';}
+function markFC(ok){if(ok)fcGot.add(fcIdx);else fcNope.add(fcIdx);nextFC();}
+function nextFC(){fcIdx=(fcIdx+1)%fcCards.length;showCard();}
+function prevFC(){fcIdx=(fcIdx-1+fcCards.length)%fcCards.length;showCard();}
+function shuffleFC(){fcCards.sort(function(){return Math.random()-0.5;});fcIdx=0;showCard();}
+function updScore(){document.getElementById('fc-score').innerHTML='<span style="color:#1b5e20">&#10003; '+fcGot.size+' got it</span> &nbsp; <span style="color:#9c2020">&#10007; '+fcNope.size+' still learning</span> &nbsp; <span style="color:#888">'+(fcCards.length-fcGot.size-fcNope.size)+' unseen</span>';}
+function shuffle(a){return a.slice().sort(function(){return Math.random()-0.5;});}
+function startQuiz(){
+  document.getElementById('quiz-wrap').style.display='block';
+  document.getElementById('quiz-done').style.display='none';
+  quizQs=shuffle(DATA).slice(0,15);quizIdx=0;quizScore=0;quizAnswered=false;showQ();
+}
+function showQ(){
+  if(quizIdx>=quizQs.length){endQuiz();return;}
+  var q=quizQs[quizIdx];
+  document.getElementById('quiz-q').textContent='What does '+q.term+' mean?';
+  document.getElementById('quiz-fb').textContent='';
+  document.getElementById('quiz-next').style.display='none';
+  document.getElementById('quiz-ctr').textContent='Question '+(quizIdx+1)+' of '+quizQs.length;
+  var others=DATA.filter(function(d){return d.term!==q.term;});
+  others=shuffle(others).slice(0,3);
+  var opts=shuffle([q.meaning].concat(others.map(function(d){return d.meaning;})));
+  var html2='';
+  for(var i=0;i<opts.length;i++){
+    html2+='<button class="qopt" data-ans="'+i+'" onclick="checkA(this)">'+(opts[i])+'</button>';
+  }
+  document.getElementById('quiz-opts').innerHTML=html2;
+  document.getElementById('quiz-opts').setAttribute('data-correct',q.meaning);
+  quizAnswered=false;
+}
+function checkA(btn){
+  if(quizAnswered)return;quizAnswered=true;
+  var correct=document.getElementById('quiz-opts').getAttribute('data-correct');
+  var allBtns=document.querySelectorAll('.qopt');
+  for(var i=0;i<allBtns.length;i++){
+    allBtns[i].disabled=true;
+    if(allBtns[i].textContent.trim()===correct.trim())allBtns[i].classList.add('correct');
+  }
+  var fb=document.getElementById('quiz-fb');
+  if(btn.textContent.trim()===correct.trim()){quizScore++;fb.textContent='Correct!';fb.style.color='#1b5e20';}
+  else{btn.classList.add('wrong');fb.textContent='Correct answer: '+correct;fb.style.color='#9c2020';}
+  document.getElementById('quiz-next').style.display='inline-block';
+}
+function nextQ(){quizIdx++;showQ();}
+function endQuiz(){document.getElementById('quiz-wrap').style.display='none';document.getElementById('quiz-done').style.display='block';document.getElementById('quiz-final').textContent=quizScore+' / '+quizQs.length;}
+window.onload=function(){document.getElementById('quiz-wrap').style.display='block';};
+</script>
+</body>
+</html>
